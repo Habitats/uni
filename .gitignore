@@ -86,3 +86,9 @@ install_manifest.txt
 *.pot
 *.pyc
 local_settings.py
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
