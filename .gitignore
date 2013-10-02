@@ -108,6 +108,7 @@ local_settings.py
 *_p.c
 *.ncb
 *.suo
+*.sln
 *.tlb
 *.tlh
 *.bak
