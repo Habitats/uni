@@ -1,0 +1,22 @@
+Shortest path
+
+Bellman-Ford
+    - allows negative edges
+    - O(VE)
+
+DAG-shortest path
+    - allows negatvie edges
+    - NO CYCLES (DAG)
+    - O(V+E)
+    - top-sort before execution
+
+Dijkstra's
+    - no negative edges
+    - uses heap queue instead of topsort (works kinda the same way)
+    - O(V^2)
+    - O((V+E)lgV)
+
+Floyd-Warshall
+    - Ø(V^3)
+    - 
+

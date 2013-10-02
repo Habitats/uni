@@ -1,0 +1,30 @@
+a)
+
+guess 0 < number < 1000
+while number not correct and tries left >= 0 
+	if number too high
+		monster: too high!
+	else
+		monster: too low!
+	guess new number
+if tries left = 0
+	run!
+else:
+	return correct number and proceed
+
+b)
+
+guess 500
+while guess is not correct and tries > 1
+    if guess too high
+        guess guess/2
+    else
+        guess guess*1.5
+if tries left = 1
+    guess random
+else
+    correct, you won!
+
+c) 
+
+x < number < y, x = min, y = max value

@@ -1,0 +1,19 @@
+3. Software
+a) Operativsystemet er i bunn og grunn et program som brukes til aa kjoere
+andre programmer paa en datamaskin. Naar man har et operativsystem saa maa
+programmene man kjoerer kun forholde seg til operativsystemet, og la
+operativsystemet snakke med hardware. Paa denne maaten kan man kjoere de samme
+programmene paa en hel rekke hardware konfigurasjoner uten de helt store
+problemene.
+
+b) En driver kan sammenlignes med en bruksanvisning til hardware, tilrettelagt
+for operaivsystemet. Uten de riktige driverne vil ikke operativsystemet forstaa
+hvordan hardwaren skal fungere.
+
+c) Public domain software er programvare blir distribuert uten noe spesifikt
+eierskap. Dermed staar hvem som helst fritt til aa gjore hva de vil med
+koden/programmet. 
+
+Freeware er gratis programmer, men ogsaa som oftest lisensiert under f.eks. GPL
+el. Dette medfoerer at man ikke noedvendigvis har rett til aa distribuere
+programmet videre uten tillatelse.
