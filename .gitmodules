@@ -1,0 +1,3 @@
+[submodule "logres"]
+	path = logres
+	url = git://github.com/Habitats/logres.git
