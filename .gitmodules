@@ -1,3 +1,3 @@
-[submodule "algorithms"]
-	path = algorithms
-	url = git://github.com/Habitats/algorithms.git
+[submodule "logres"]
+	path = logres
+	url = git://github.com/Habitats/logres.git
