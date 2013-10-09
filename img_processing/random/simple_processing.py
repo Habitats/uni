@@ -47,4 +47,5 @@ imgArr = pyl.imread(imgPath)
 imgplot = monochromeInverted(imgArr)
 
 # display the plot
-plt.show()
+#plt.show()
+imgArr.show()
