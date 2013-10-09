@@ -1,51 +1,47 @@
-import matplotlib.pyplot as plt
 import numpy as np
-import pylab as pyl
+from PIL import Image
 
+# USING PIL + numpy
+def negative(image):
+    out = image.point(lambda p : abs(p - 255))
+    return out
 
-def plotImg(imgArr):
-    # plot image
-    imgplot = plt.imshow(imgArr, origin = "upper")
-    return imgplot
+# helper functions
+def imageToNumpy(im):
+    return np.array(im)
 
+def numpyToImage(im):
+    return Image.fromarray(im)
 
-def monochromeInverted(imgArr):
-    # get dimensions
-    width = imgArr.shape[0]
-    height = imgArr.shape[1]
+def saveImg(im, name):
+    im.save(name)
 
-    imgGray = np.zeros((width, height), dtype = np.double)
-    imgGray[1:width, 1:height] = imgArr[1:width, 1:height, 1]
+# returns np array
+def readImageFromUrl(path):
+    # it is preferred to use pyl.imread(): http://bit.ly/Xv7tT1
+#    return numpyToImage(pyl.imread(path))
+    return Image.open(path)
 
-    # process
-    tmp = 512 * np.ones((width, height), dtype = np.double)
-    myout = tmp - imgGray
+# this image is in float64
+#path = "test.png"
 
-    # plot monchrome
-    imgplot = plt.imshow(myout)
-    imgplot.set_cmap("gray")
-    imgplot.set_interpolation("nearest")
+# these are uint8?
+path = "test2.png"
+#path = "dog.jpg"
+#path = "stinkbug.png"
 
-    return imgplot
-    # plt.savefig("output.png")
+# load the image from file
+image = readImageFromUrl(path)
 
-def luminosity(imgArr):
-    lumImg = imgArr[:, :, 0]
-    imgplot = plt.imshow(lumImg)
-    return imgplot
+# convert to numpy
+arr = imageToNumpy(image)
 
-imgPath = "test.png"
-#imgPath = "4x4.png"
-#imgPath = "stinkbug.png"
+# convert to PIL image
+image = numpyToImage(arr)
+image = negative(image)
 
-# read
-imgArr = pyl.imread(imgPath)
+# save the image
+saveImg(image, "tits.png")
 
-# process
-#imgplot = plotImg(imgArr)
-#imgplot = luminosity(imgArr)
-imgplot = monochromeInverted(imgArr)
-
-# display the plot
-#plt.show()
-imgArr.show()
+# display the image in the default image viewer
+image.show()
