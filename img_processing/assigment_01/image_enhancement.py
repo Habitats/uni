@@ -1,36 +1,41 @@
 import numpy as np
 import pylab as pyl
-from scipy import misc
+from PIL import Image
 
+# helper functions
+def imageToNumpy(im):
+    return np.array(im)
+
+def numpyToImage(im):
+    return Image.fromarray(im)
+
+def saveImg(im, name):
+    im.save(name)
+
+# returns np array
 def readImageFromPath(path):
-    imgArr = pyl.imread(path)
-    return imgArr
+    return imageToNumpy(Image.open(path))
 
-def renderImg(imgArr):
-    imgplot = pyl.imshow(imgArr)
-    imgplot.set_interpolation("nearest")
-    imgplot.set_cmap("gray")
-
-def saveImage(filename, img):
-    pyl.axis("off")
-    pyl.xlim(0, img.shape[0]); pyl.ylim(img.shape[1], 0)
-    misc.imsave(filename + ".png", img)
+def normalize(numpy_array):
+    low, high = numpy_array.min(), numpy_array.max()
+    func = lambda X: (X - low) / float(high - low)
+    return func(numpy_array)
 
 def correctDistortion():
     imgOne = readImageFromPath("testimages/disturbed_potw1144a.png")
     imgTwo = readImageFromPath("testimages/flatfieldimage.png")
 
-    img = imgOne * imgTwo
-    renderImg(img)
-    saveImage("disturbed_potw1144a_fix", img)
-    img2 = imgOne * (1. / imgTwo)
-    renderImg(img2)
-    saveImage("disturbed_potw1144a_fix2", img2)
+    imgTwo = normalize(imgTwo)
 
+    # correct the distortion
+    img = imgOne / imgTwo
+
+    # convert back to image object
+    img = numpyToImage(img)
 
     # save before showing
-
-#    pyl.show()
+    img.show()
+    saveImg(img , "disturbed_potw1144a_fix.png")
 
 correctDistortion()
 
