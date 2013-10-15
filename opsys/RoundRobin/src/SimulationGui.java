@@ -112,6 +112,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 	 * Method running as a separate thread when the "Start simulation" button is
 	 * pressed. Starts the main simulation loop.
 	 */
+	@Override
 	public void run() {
 		running = true;
 		simulator.simulate();
@@ -122,6 +123,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 	 * 
 	 * @ae The action event.
 	 */
+	@Override
 	public void actionPerformed(ActionEvent ae) {
 		if (!running) {
 			startButton.setText("Complete simulation");
@@ -159,17 +161,17 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 			String leftText, String rightText, String text) {
 		JLabel left, middle, right;
 		left = new JLabel(leftText);
-		left.setHorizontalAlignment(JLabel.LEFT);
+		left.setHorizontalAlignment(SwingConstants.LEFT);
 		left.setOpaque(false);
 		p.add(left);
 		left.setBounds(x, y, w, h);
 		middle = new JLabel(text);
-		middle.setHorizontalAlignment(JLabel.CENTER);
+		middle.setHorizontalAlignment(SwingConstants.CENTER);
 		middle.setOpaque(false);
 		p.add(middle);
 		middle.setBounds(x, y, w, h);
 		right = new JLabel(rightText);
-		right.setHorizontalAlignment(JLabel.RIGHT);
+		right.setHorizontalAlignment(SwingConstants.RIGHT);
 		right.setOpaque(false);
 		p.add(right);
 		right.setBounds(x, y, w, h);
@@ -182,6 +184,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 	 *            The process that is currently active, or null if the CPU is
 	 *            idle.
 	 */
+	@Override
 	public void setCpuActive(Process p) {
 		cpu.setActiveProcess(p);
 	}
@@ -194,6 +197,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 	 *            The process that is currently active, or null if the I/O
 	 *            device is idle.
 	 */
+	@Override
 	public void setIoActive(Process p) {
 		io.setActiveProcess(p);
 	}
@@ -205,6 +209,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 	 *            The (simulated) time that has passed since the last call to
 	 *            this method.
 	 */
+	@Override
 	public void timePassed(long time) {
 		timeElapsed += time;
 		timeElapsedLabel.setText("Simulated time elapsed: " + timeElapsed

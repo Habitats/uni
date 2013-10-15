@@ -99,6 +99,7 @@ public class Queue extends JPanel implements Constants {
 	 * @param g
 	 *            The graphics context to paint the queue in.
 	 */
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		int w = getWidth() - 1;

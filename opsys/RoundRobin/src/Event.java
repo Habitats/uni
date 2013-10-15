@@ -53,6 +53,7 @@ public class Event implements Comparable {
 	 *         other event occurs before this event.
 	 * @see java.lang.Comparable
 	 */
+	@Override
 	public int compareTo(Object o) {
 		Event e = (Event) o;
 		return (int) (time - e.time);

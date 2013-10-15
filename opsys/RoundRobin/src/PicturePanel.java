@@ -56,6 +56,7 @@ public class PicturePanel extends JPanel implements Constants {
 	 * 
 	 * @returns The size of the images being displayed.
 	 */
+	@Override
 	public Dimension getPreferredSize() {
 		return new Dimension(imageWidth, imageHeight);
 	}
@@ -72,6 +73,7 @@ public class PicturePanel extends JPanel implements Constants {
 	 * @param h
 	 *            The height.
 	 */
+	@Override
 	public void setBounds(int x, int y, int w, int h) {
 		super.setBounds(x, y, w, h);
 		imageWidth = w;
@@ -84,6 +86,7 @@ public class PicturePanel extends JPanel implements Constants {
 	 * @param g
 	 *            The Graphics2D graphics content to paint this component in.
 	 */
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2D = (Graphics2D) g;

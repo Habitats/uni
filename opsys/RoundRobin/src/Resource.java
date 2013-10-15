@@ -1,4 +1,3 @@
-import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -46,6 +45,7 @@ public class Resource extends JPanel {
 	 * @param g
 	 *            The graphics context to paint the resource in.
 	 */
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		int w = getWidth() - 1;
