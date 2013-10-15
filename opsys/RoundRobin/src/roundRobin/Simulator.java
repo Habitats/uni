@@ -61,13 +61,11 @@ public class Simulator implements Constants {
 		clock = 0;
 		// Add code as needed
 
-		cpu = new CPU(cpuQueue);
+		cpu = new CPU(cpuQueue, gui);
 	}
 
 	/**
-	 * Starts the simulation. Contains the main loop, processing events. This
-	 * method is called when the "Start simulation" button in the GUI is
-	 * clicked.
+	 * Starts the simulation. Contains the main loop, processing events. This method is called when the "Start simulation" button in the GUI is clicked.
 	 */
 	public void simulate() {
 		// TODO: You may want to extend this method somewhat.
@@ -102,8 +100,7 @@ public class Simulator implements Constants {
 	}
 
 	/**
-	 * Processes an event by inspecting its type and delegating the work to the
-	 * appropriate method.
+	 * Processes an event by inspecting its type and delegating the work to the appropriate method.
 	 * 
 	 * @param event
 	 *            The event to be processed.
@@ -144,8 +141,7 @@ public class Simulator implements Constants {
 	}
 
 	/**
-	 * Transfers processes from the memory queue to the ready queue as long as
-	 * there is enough memory for the processes.
+	 * Transfers processes from the memory queue to the ready queue as long as there is enough memory for the processes.
 	 */
 	private void flushMemoryQueue() {
 		Process p = memory.checkMemory(clock);
@@ -186,16 +182,14 @@ public class Simulator implements Constants {
 	}
 
 	/**
-	 * Processes an event signifying that the active process needs to perform an
-	 * I/O operation.
+	 * Processes an event signifying that the active process needs to perform an I/O operation.
 	 */
 	private void processIoRequest() {
 		// Incomplete
 	}
 
 	/**
-	 * Processes an event signifying that the process currently doing I/O is
-	 * done with its I/O operation.
+	 * Processes an event signifying that the process currently doing I/O is done with its I/O operation.
 	 */
 	private void endIoOperation() {
 		// Incomplete
@@ -219,9 +213,8 @@ public class Simulator implements Constants {
 	}
 
 	/**
-	 * The startup method. Reads relevant parameters from the standard input,
-	 * and starts up the GUI. The GUI will then start the simulation when the
-	 * user clicks the "Start simulation" button.
+	 * The startup method. Reads relevant parameters from the standard input, and starts up the GUI. The GUI will then start the simulation when the user clicks the
+	 * "Start simulation" button.
 	 * 
 	 * @param args
 	 *            Parameters from the command line, they are ignored.

@@ -5,10 +5,7 @@ public interface Constants {
 	public static final int NEW_PROCESS = 1;
 	/** Event type describing the completion of the active process */
 	public static final int END_PROCESS = 2;
-	/**
-	 * Event type describing a process switch due to the completion of a RR time
-	 * quant
-	 */
+	/** Event type describing a process switch due to the completion of a RR time quant */
 	public static final int SWITCH_PROCESS = 3;
 	/** Event type describing the need for the active process to perform I/O */
 	public static final int IO_REQUEST = 4;

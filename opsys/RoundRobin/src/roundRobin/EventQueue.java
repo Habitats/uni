@@ -3,9 +3,8 @@ package roundRobin;
 import java.util.*;
 
 /**
- * This class maintains a queue of events used for simulating the behaviour of
- * the system. Events are kept in a cronologically sorted list. This class is an
- * example of a priority queue (event time being the priority in this case).
+ * This class maintains a queue of events used for simulating the behaviour of the system. Events are kept in a cronologically sorted list. This class is an example of a priority
+ * queue (event time being the priority in this case).
  */
 public class EventQueue {
 	/** The list of events */
@@ -19,8 +18,7 @@ public class EventQueue {
 	}
 
 	/**
-	 * Inserts an event in the queue. The event is added to the event list,
-	 * which is then resorted.
+	 * Inserts an event in the queue. The event is added to the event list, which is then resorted.
 	 * 
 	 * @param event
 	 *            The event to be inserted.
@@ -33,8 +31,7 @@ public class EventQueue {
 	}
 
 	/**
-	 * Removes and returns the earliest event (the event with the lowest time
-	 * value) from the queue.
+	 * Removes and returns the earliest event (the event with the lowest time value) from the queue.
 	 * 
 	 * @return The event with the lowest time value in the queue.
 	 */

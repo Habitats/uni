@@ -6,9 +6,7 @@ import gui.Statistics;
 import java.awt.*;
 
 /**
- * This class contains data associated with processes, and methods for
- * manipulating this data as well as methods for displaying a process in the
- * GUI.
+ * This class contains data associated with processes, and methods for manipulating this data as well as methods for displaying a process in the GUI.
  * 
  * You will probably want to add more methods to this class.
  */
@@ -50,8 +48,7 @@ public class Process implements Constants {
 	private long timeOfLastEvent;
 
 	/**
-	 * Creates a new process with given parameters. Other parameters are
-	 * randomly determined.
+	 * Creates a new process with given parameters. Other parameters are randomly determined.
 	 * 
 	 * @param memorySize
 	 *            The size of the memory unit.
@@ -102,8 +99,7 @@ public class Process implements Constants {
 	}
 
 	/**
-	 * This method is called when the process leaves the memory queue (and
-	 * enters the cpu queue).
+	 * This method is called when the process leaves the memory queue (and enters the cpu queue).
 	 * 
 	 * @param clock
 	 *            The time when the process leaves the memory queue.
@@ -123,9 +119,7 @@ public class Process implements Constants {
 	}
 
 	/**
-	 * Updates the statistics collected by the given Statistic object, adding
-	 * data collected by this process. This method is called when the process
-	 * leaves the system.
+	 * Updates the statistics collected by the given Statistic object, adding data collected by this process. This method is called when the process leaves the system.
 	 * 
 	 * @param statistics
 	 *            The Statistics object to be updated.

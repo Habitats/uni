@@ -9,8 +9,7 @@ import roundRobin.Queue;
 import roundRobin.Simulator;
 
 /**
- * This class provides a GUI displaying the queueing network used to simulate
- * our system.
+ * This class provides a GUI displaying the queueing network used to simulate our system.
  */
 @SuppressWarnings("serial")
 public class SimulationGui extends JFrame implements Constants, ActionListener, Runnable, Gui {
@@ -110,8 +109,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener, 
 	}
 
 	/**
-	 * Method running as a separate thread when the "Start simulation" button is
-	 * pressed. Starts the main simulation loop.
+	 * Method running as a separate thread when the "Start simulation" button is pressed. Starts the main simulation loop.
 	 */
 	@Override
 	public void run() {
@@ -147,8 +145,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener, 
 	 * @param y
 	 *            The y position of the topmost label.
 	 * @param w
-	 *            The width from leftmost label to rightmost pixel of the
-	 *            rightmost label
+	 *            The width from leftmost label to rightmost pixel of the rightmost label
 	 * @param h
 	 *            The height of the labels.
 	 * @param leftText
@@ -181,8 +178,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener, 
 	 * Controls which process is being shown as the process active in the CPU.
 	 * 
 	 * @param p
-	 *            The process that is currently active, or null if the CPU is
-	 *            idle.
+	 *            The process that is currently active, or null if the CPU is idle.
 	 */
 	@Override
 	public void setCpuActive(Process p) {
@@ -190,12 +186,10 @@ public class SimulationGui extends JFrame implements Constants, ActionListener, 
 	}
 
 	/**
-	 * Controls which process is being shown as the process active in the I/O
-	 * device.
+	 * Controls which process is being shown as the process active in the I/O device.
 	 * 
 	 * @param p
-	 *            The process that is currently active, or null if the I/O
-	 *            device is idle.
+	 *            The process that is currently active, or null if the I/O device is idle.
 	 */
 	@Override
 	public void setIoActive(Process p) {
@@ -206,8 +200,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener, 
 	 * Lets the GUI know that a discrete amount of time has passed.
 	 * 
 	 * @param time
-	 *            The (simulated) time that has passed since the last call to
-	 *            this method.
+	 *            The (simulated) time that has passed since the last call to this method.
 	 */
 	@Override
 	public void timePassed(long time) {
@@ -239,8 +232,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener, 
 	}
 
 	/**
-	 * Loads all images to be used by the GUI, and waits for them to be fully
-	 * loaded before returning.
+	 * Loads all images to be used by the GUI, and waits for them to be fully loaded before returning.
 	 */
 	private void loadImages() {
 		MediaTracker tracker = new MediaTracker(this);

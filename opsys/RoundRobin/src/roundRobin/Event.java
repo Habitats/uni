@@ -3,8 +3,7 @@ package roundRobin;
 import gui.Constants;
 
 /**
- * This class contains information about an event. The different types of events
- * are described in the Constants interface.
+ * This class contains information about an event. The different types of events are described in the Constants interface.
  * 
  * @see EventQueue
  * @see Constants
@@ -47,14 +46,11 @@ public class Event implements Comparable<Object> {
 	}
 
 	/**
-	 * Compares the time of two events. This method is used when sorting the
-	 * list of events maintained by the EventQueue class.
+	 * Compares the time of two events. This method is used when sorting the list of events maintained by the EventQueue class.
 	 * 
 	 * @param o
 	 *            The event to compare this event with.
-	 * @return A negative number if this event occurs before the other event, 0
-	 *         if they occur at the same time, and a positive number if the
-	 *         other event occurs before this event.
+	 * @return A negative number if this event occurs before the other event, 0 if they occur at the same time, and a positive number if the other event occurs before this event.
 	 * @see java.lang.Comparable
 	 */
 	@Override

@@ -4,8 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * Component used by the GUI to display an image, with an optional overlay image
- * and four possible orientations.
+ * Component used by the GUI to display an image, with an optional overlay image and four possible orientations.
  */
 @SuppressWarnings("serial")
 public class PicturePanel extends JPanel implements Constants {
@@ -34,8 +33,7 @@ public class PicturePanel extends JPanel implements Constants {
 	}
 
 	/**
-	 * Specifies an image to be shown on top of the background image. In areas
-	 * where the top image is transparent the background image will show.
+	 * Specifies an image to be shown on top of the background image. In areas where the top image is transparent the background image will show.
 	 * 
 	 * @param newTop
 	 *            The new overlay image to be displayed.

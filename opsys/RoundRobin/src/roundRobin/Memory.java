@@ -3,8 +3,7 @@ package roundRobin;
 import gui.Statistics;
 
 /**
- * This class implements functionality associated with the memory device of the
- * simulated system.
+ * This class implements functionality associated with the memory device of the simulated system.
  */
 public class Memory {
 	/** The queue of processes waiting for free memory */
@@ -53,9 +52,8 @@ public class Memory {
 	}
 
 	/**
-	 * Checks whether or not there is enough free memory to let the first
-	 * process in the memory queue proceed to the cpu queue. If there is, the
-	 * process that was granted memory is returned, otherwise null is returned.
+	 * Checks whether or not there is enough free memory to let the first process in the memory queue proceed to the cpu queue. If there is, the process that was granted memory is
+	 * returned, otherwise null is returned.
 	 * 
 	 * @param clock
 	 *            The current time.
@@ -78,8 +76,7 @@ public class Memory {
 	 * This method is called when a discrete amount of time has passed.
 	 * 
 	 * @param timePassed
-	 *            The amount of time that has passed since the last call to this
-	 *            method.
+	 *            The amount of time that has passed since the last call to this method.
 	 */
 	public void timePassed(long timePassed) {
 		statistics.memoryQueueLengthTime += memoryQueue.getQueueLength() * timePassed;
@@ -89,8 +86,7 @@ public class Memory {
 	}
 
 	/**
-	 * This method is called when a process is exiting the system. The memory
-	 * allocated to this process is freed.
+	 * This method is called when a process is exiting the system. The memory allocated to this process is freed.
 	 * 
 	 * @param p
 	 *            The process that is leaving the system.

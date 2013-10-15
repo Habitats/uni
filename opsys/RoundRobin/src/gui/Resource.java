@@ -7,9 +7,8 @@ import roundRobin.Process;
 import java.awt.*;
 
 /**
- * Graphical component used to display a resource in a queuing network. The
- * resource may represent a CPU, memory, etc, and is displayed as a circle with
- * a name. The resource may also contain an active process.
+ * Graphical component used to display a resource in a queuing network. The resource may represent a CPU, memory, etc, and is displayed as a circle with a name. The resource may
+ * also contain an active process.
  */
 @SuppressWarnings("serial")
 public class Resource extends JPanel {
@@ -36,8 +35,7 @@ public class Resource extends JPanel {
 	 * Controls which process is being shown as currently using this resource.
 	 * 
 	 * @param p
-	 *            The process that is currently using the resource, or null if
-	 *            the resource is idle.
+	 *            The process that is currently using the resource, or null if the resource is idle.
 	 */
 	public void setActiveProcess(Process p) {
 		activeProcess = p;
@@ -45,8 +43,7 @@ public class Resource extends JPanel {
 	}
 
 	/**
-	 * Paints the resource as a circle with a name and a possible process
-	 * inside.
+	 * Paints the resource as a circle with a name and a possible process inside.
 	 * 
 	 * @param g
 	 *            The graphics context to paint the resource in.

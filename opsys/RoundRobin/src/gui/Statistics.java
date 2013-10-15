@@ -1,8 +1,7 @@
 package gui;
 
 /**
- * This class contains a lot of public variables that can be updated by other
- * classes during a simulation, to collect information about the run.
+ * This class contains a lot of public variables that can be updated by other classes during a simulation, to collect information about the run.
  */
 public class Statistics {
 	/** The number of processes that have exited the system */
@@ -14,8 +13,7 @@ public class Statistics {
 	 */
 	public long totalTimeSpentWaitingForMemory = 0;
 	/**
-	 * The time-weighted length of the memory queue, divide this number by the
-	 * total time to get average queue length
+	 * The time-weighted length of the memory queue, divide this number by the total time to get average queue length
 	 */
 	public long memoryQueueLengthTime = 0;
 	/** The largest memory queue length that has occured */

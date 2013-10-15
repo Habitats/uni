@@ -7,9 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * A queue in a queuing network. This class both offers ordinary queue
- * functionality, as well as serving as a graphical component. This means that
- * updates to the queue will be automatically displayed in the GUI.
+ * A queue in a queuing network. This class both offers ordinary queue functionality, as well as serving as a graphical component. This means that updates to the queue will be
+ * automatically displayed in the GUI.
  */
 @SuppressWarnings("serial")
 public class Queue extends JPanel implements Constants {
@@ -18,8 +17,7 @@ public class Queue extends JPanel implements Constants {
 	/** The name of the queue */
 	private String name;
 	/**
-	 * The maximum number of elements of the queue that will be visible in the
-	 * GUI
+	 * The maximum number of elements of the queue that will be visible in the GUI
 	 */
 	private int maxVisibleLength;
 	/** The direction in which the queue is drawn, either EAST or WEST */
@@ -33,11 +31,9 @@ public class Queue extends JPanel implements Constants {
 	 * @param name
 	 *            The name of the queue, which will be shown in the GUI.
 	 * @param maxVisibleLength
-	 *            The maximum number of elements of the queue that will be
-	 *            visible in the GUI.
+	 *            The maximum number of elements of the queue that will be visible in the GUI.
 	 * @param direction
-	 *            The direction in which the queue will be drawn, either EAST or
-	 *            WEST.
+	 *            The direction in which the queue will be drawn, either EAST or WEST.
 	 */
 	public Queue(String name, int maxVisibleLength, int direction) {
 		this.name = name;
@@ -59,8 +55,7 @@ public class Queue extends JPanel implements Constants {
 	}
 
 	/**
-	 * Returns the first element in the queue, but does not remove it from the
-	 * queue.
+	 * Returns the first element in the queue, but does not remove it from the queue.
 	 * 
 	 * @return The first object in the queue.
 	 */
@@ -98,8 +93,7 @@ public class Queue extends JPanel implements Constants {
 	}
 
 	/**
-	 * Paints the queue as a horizontal row of slots containing processes. This
-	 * method assumes that the elements of the queue are Process objects.
+	 * Paints the queue as a horizontal row of slots containing processes. This method assumes that the elements of the queue are Process objects.
 	 * 
 	 * @param g
 	 *            The graphics context to paint the queue in.
