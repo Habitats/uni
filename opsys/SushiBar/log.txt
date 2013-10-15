@@ -1,0 +1,617 @@
+19:02:29:0547, Thread-1: Customer 1 is now created.
+19:02:29:0559, Thread-1: Customer 1 is waiting for a free seat.
+19:02:29:0561, Thread-2: Customer 1 has a seat now.
+19:02:29:0563, Thread-3: Customer 1 ordered 3 meals
+19:02:29:0565, Thread-3: Customer 1 ordered takeaway...
+19:02:30:0302, Thread-1: Customer 2 is now created.
+19:02:30:0303, Thread-1: Customer 2 is waiting for a free seat.
+19:02:30:0305, Thread-2: Customer 2 has a seat now.
+19:02:30:0307, Thread-4: Customer 2 ordered 9 meals
+19:02:30:0309, Thread-4: Customer 2 is eating sushi now...
+19:02:30:0580, Thread-1: Customer 3 is now created.
+19:02:30:0582, Thread-1: Customer 3 is waiting for a free seat.
+19:02:30:0584, Thread-2: Customer 3 has a seat now.
+19:02:30:0586, Thread-5: Customer 3 ordered 8 meals
+19:02:30:0588, Thread-5: Customer 3 is eating sushi now...
+19:02:38:0589, Thread-5: Customer 3 ate sushi for 8000 ms
+19:02:39:0311, Thread-4: Customer 2 ate sushi for 9000 ms
+19:03:11:0983, Thread-1: Customer 1 is now created.
+19:03:11:0997, Thread-1: Customer 1 is waiting for a free seat.
+19:03:11:0999, Thread-2: Customer 1 has a seat now.
+19:03:12:0001, Thread-3: Customer 1 ordered 10 meals
+19:03:12:0003, Thread-3: Customer 1 is eating sushi now...
+19:03:12:0451, Thread-1: Customer 2 is now created.
+19:03:12:0453, Thread-1: Customer 2 is waiting for a free seat.
+19:03:12:0455, Thread-2: Customer 2 has a seat now.
+19:03:12:0456, Thread-4: Customer 2 ordered 10 meals
+19:03:12:0459, Thread-4: Customer 2 ordered takeaway...
+19:03:12:0461, Thread-2: Customer 2 left the shop.
+19:03:13:0055, Thread-1: Customer 3 is now created.
+19:03:13:0057, Thread-1: Customer 3 is waiting for a free seat.
+19:03:13:0058, Thread-2: Customer 3 has a seat now.
+19:03:13:0060, Thread-5: Customer 3 ordered 1 meals
+19:03:13:0063, Thread-5: Customer 3 is eating sushi now...
+19:03:13:0342, Thread-1: Customer 4 is now created.
+19:03:13:0344, Thread-1: Customer 4 is waiting for a free seat.
+19:03:13:0345, Thread-2: Customer 4 has a seat now.
+19:03:13:0348, Thread-6: Customer 4 ordered 8 meals
+19:03:13:0350, Thread-6: Customer 4 ordered takeaway...
+19:03:13:0352, Thread-2: Customer 4 left the shop.
+19:03:14:0066, Thread-5: Customer 3 ate sushi for 1001 ms
+19:03:14:0067, Thread-2: Customer 3 left the shop.
+19:03:14:0766, Thread-1: Customer 5 is now created.
+19:03:14:0768, Thread-1: Customer 5 is waiting for a free seat.
+19:03:14:0771, Thread-2: Customer 5 has a seat now.
+19:03:14:0773, Thread-7: Customer 5 ordered 2 meals
+19:03:14:0776, Thread-7: Customer 5 ordered takeaway...
+19:03:14:0778, Thread-2: Customer 5 left the shop.
+19:03:15:0415, Thread-1: Customer 6 is now created.
+19:03:15:0417, Thread-1: Customer 6 is waiting for a free seat.
+19:03:15:0418, Thread-2: Customer 6 has a seat now.
+19:03:15:0420, Thread-8: Customer 6 ordered 6 meals
+19:03:15:0422, Thread-8: Customer 6 ordered takeaway...
+19:03:15:0424, Thread-2: Customer 6 left the shop.
+19:03:15:0486, Thread-1: Customer 7 is now created.
+19:03:15:0488, Thread-1: Customer 7 is waiting for a free seat.
+19:03:15:0489, Thread-2: Customer 7 has a seat now.
+19:03:15:0491, Thread-9: Customer 7 ordered 1 meals
+19:03:15:0493, Thread-9: Customer 7 is eating sushi now...
+19:03:15:0738, Thread-1: Customer 8 is now created.
+19:03:15:0740, Thread-1: Customer 8 is waiting for a free seat.
+19:03:15:0741, Thread-2: Customer 8 has a seat now.
+19:03:15:0743, Thread-10: Customer 8 ordered 5 meals
+19:03:15:0746, Thread-10: Customer 8 ordered takeaway...
+19:03:15:0748, Thread-2: Customer 8 left the shop.
+19:03:16:0364, Thread-1: Customer 9 is now created.
+19:03:16:0366, Thread-1: Customer 9 is waiting for a free seat.
+19:03:16:0368, Thread-2: Customer 9 has a seat now.
+19:03:16:0370, Thread-11: Customer 9 ordered 4 meals
+19:03:16:0372, Thread-11: Customer 9 is eating sushi now...
+19:03:16:0496, Thread-9: Customer 7 ate sushi for 1001 ms
+19:03:16:0498, Thread-2: Customer 7 left the shop.
+19:03:16:0856, Thread-1: Customer 10 is now created.
+19:03:16:0858, Thread-1: Customer 10 is waiting for a free seat.
+19:03:16:0860, Thread-2: Customer 10 has a seat now.
+19:03:16:0862, Thread-12: Customer 10 ordered 6 meals
+19:03:16:0864, Thread-12: Customer 10 ordered takeaway...
+19:03:16:0867, Thread-2: Customer 10 left the shop.
+19:03:20:0374, Thread-11: Customer 9 ate sushi for 4000 ms
+19:03:20:0376, Thread-2: Customer 9 left the shop.
+19:03:22:0005, Thread-3: Customer 1 ate sushi for 10000 ms
+19:03:22:0007, Thread-2: Customer 1 left the shop.
+19:03:22:0009, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:03:22:0011, Total Customers: 10 - Current Customers: 0 - Total Orders: 53 - Max Customers: 3
+19:44:41:0886, Thread-1: Customer 1 is now created.
+19:44:41:0911, Thread-1: Customer 1 is waiting for a free seat.
+19:44:41:0914, Thread-2: Customer 1 has a seat now.
+19:44:41:0916, Thread-3: Customer 1 ordered 9 meals
+19:44:41:0918, Thread-3: Customer 1 ordered takeaway...
+19:44:41:0921, Thread-2: Customer 1 left the shop.
+19:44:42:0234, Thread-1: Customer 2 is now created.
+19:44:42:0236, Thread-1: Customer 2 is waiting for a free seat.
+19:44:42:0238, Thread-2: Customer 2 has a seat now.
+19:44:42:0240, Thread-4: Customer 2 ordered 6 meals
+19:44:42:0243, Thread-4: Customer 2 ordered takeaway...
+19:44:42:0245, Thread-2: Customer 2 left the shop.
+19:44:43:0072, Thread-1: Customer 3 is now created.
+19:44:43:0074, Thread-1: Customer 3 is waiting for a free seat.
+19:44:43:0076, Thread-2: Customer 3 has a seat now.
+19:44:43:0079, Thread-5: Customer 3 ordered 6 meals
+19:44:43:0081, Thread-5: Customer 3 is eating sushi now...
+19:44:44:0221, Thread-1: Customer 4 is now created.
+19:44:44:0223, Thread-1: Customer 4 is waiting for a free seat.
+19:44:44:0225, Thread-2: Customer 4 has a seat now.
+19:44:44:0227, Thread-6: Customer 4 ordered 5 meals
+19:44:44:0230, Thread-6: Customer 4 is eating sushi now...
+19:44:44:0751, Thread-1: Customer 5 is now created.
+19:44:44:0753, Thread-1: Customer 5 is waiting for a free seat.
+19:44:44:0756, Thread-2: Customer 5 has a seat now.
+19:44:44:0759, Thread-7: Customer 5 ordered 5 meals
+19:44:44:0762, Thread-7: Customer 5 is eating sushi now...
+19:44:49:0083, Thread-5: Customer 3 ate sushi for 6000 ms
+19:44:49:0085, Thread-2: Customer 3 left the shop.
+19:44:49:0233, Thread-6: Customer 4 ate sushi for 5001 ms
+19:44:49:0235, Thread-2: Customer 4 left the shop.
+19:44:49:0764, Thread-7: Customer 5 ate sushi for 5000 ms
+19:44:49:0766, Thread-2: Customer 5 left the shop.
+19:44:49:0768, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:44:49:0770, Total Customers: 5 - Current Customers: 0 - Total Orders: 31 - Max Customers: 3
+19:45:22:0955, Thread-1: Customer 1 is now created.
+19:45:22:0970, Thread-1: Customer 1 is waiting for a free seat.
+19:45:22:0972, Thread-2: Customer 1 has a seat now.
+19:45:22:0975, Thread-3: Customer 1 ordered 4 meals
+19:45:22:0978, Thread-3: Customer 1 ordered takeaway...
+19:45:22:0980, Thread-2: Customer 1 left the shop.
+19:45:23:0202, Thread-1: Customer 2 is now created.
+19:45:23:0204, Thread-1: Customer 2 is waiting for a free seat.
+19:45:23:0206, Thread-2: Customer 2 has a seat now.
+19:45:23:0209, Thread-4: Customer 2 ordered 10 meals
+19:45:23:0213, Thread-4: Customer 2 ordered takeaway...
+19:45:23:0216, Thread-2: Customer 2 left the shop.
+19:45:24:0004, Thread-1: Customer 3 is now created.
+19:45:24:0006, Thread-1: Customer 3 is waiting for a free seat.
+19:45:24:0009, Thread-2: Customer 3 has a seat now.
+19:45:24:0011, Thread-5: Customer 3 ordered 5 meals
+19:45:24:0014, Thread-5: Customer 3 is eating sushi now...
+19:45:24:0440, Thread-1: Customer 4 is now created.
+19:45:24:0442, Thread-1: Customer 4 is waiting for a free seat.
+19:45:24:0445, Thread-2: Customer 4 has a seat now.
+19:45:24:0447, Thread-6: Customer 4 ordered 6 meals
+19:45:24:0449, Thread-6: Customer 4 ordered takeaway...
+19:45:24:0452, Thread-2: Customer 4 left the shop.
+19:45:25:0608, Thread-1: Customer 5 is now created.
+19:45:25:0610, Thread-1: Customer 5 is waiting for a free seat.
+19:45:25:0612, Thread-2: Customer 5 has a seat now.
+19:45:25:0615, Thread-7: Customer 5 ordered 3 meals
+19:45:25:0617, Thread-7: Customer 5 is eating sushi now...
+19:45:26:0220, Thread-1: Customer 6 is now created.
+19:45:26:0222, Thread-1: Customer 6 is waiting for a free seat.
+19:45:26:0224, Thread-2: Customer 6 has a seat now.
+19:45:26:0227, Thread-8: Customer 6 ordered 8 meals
+19:45:26:0230, Thread-8: Customer 6 is eating sushi now...
+19:45:26:0544, SushiBar is full!
+19:45:28:0619, Thread-7: Customer 5 ate sushi for 3000 ms
+19:45:28:0621, Thread-2: Customer 5 left the shop.
+19:45:29:0017, Thread-5: Customer 3 ate sushi for 5000 ms
+19:45:29:0019, Thread-2: Customer 3 left the shop.
+19:45:34:0233, Thread-8: Customer 6 ate sushi for 8000 ms
+19:45:34:0235, Thread-2: Customer 6 left the shop.
+19:45:34:0238, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:45:34:0241, Total Customers: 6 - Current Customers: 0 - Total Orders: 36 - Max Customers: 3
+19:46:04:0412, Thread-1: Customer 1 is now created.
+19:46:04:0427, Thread-1: Customer 1 is waiting for a free seat.
+19:46:04:0430, Thread-2: Customer 1 has a seat now.
+19:46:04:0432, Thread-3: Customer 1 ordered 4 meals
+19:46:04:0436, Thread-3: Customer 1 ordered takeaway...
+19:46:04:0438, Thread-2: Customer 1 left the shop.
+19:46:04:0491, Thread-1: Customer 2 is now created.
+19:46:04:0494, Thread-1: Customer 2 is waiting for a free seat.
+19:46:04:0497, Thread-2: Customer 2 has a seat now.
+19:46:04:0501, Thread-4: Customer 2 ordered 3 meals
+19:46:04:0504, Thread-4: Customer 2 ordered takeaway...
+19:46:04:0508, Thread-2: Customer 2 left the shop.
+19:46:05:0417, Thread-1: Customer 3 is now created.
+19:46:05:0420, Thread-1: Customer 3 is waiting for a free seat.
+19:46:05:0423, Thread-2: Customer 3 has a seat now.
+19:46:05:0425, Thread-5: Customer 3 ordered 10 meals
+19:46:05:0428, Thread-5: Customer 3 is eating sushi now...
+19:46:05:0676, Thread-1: Customer 4 is now created.
+19:46:05:0678, Thread-1: Customer 4 is waiting for a free seat.
+19:46:05:0681, Thread-2: Customer 4 has a seat now.
+19:46:05:0683, Thread-6: Customer 4 ordered 2 meals
+19:46:05:0686, Thread-6: Customer 4 ordered takeaway...
+19:46:05:0689, Thread-2: Customer 4 left the shop.
+19:46:05:0735, Thread-1: Customer 5 is now created.
+19:46:05:0737, Thread-1: Customer 5 is waiting for a free seat.
+19:46:05:0740, Thread-2: Customer 5 has a seat now.
+19:46:05:0743, Thread-7: Customer 5 ordered 4 meals
+19:46:05:0746, Thread-7: Customer 5 is eating sushi now...
+19:46:05:0867, Thread-1: Customer 6 is now created.
+19:46:05:0870, Thread-1: Customer 6 is waiting for a free seat.
+19:46:05:0872, Thread-2: Customer 6 has a seat now.
+19:46:05:0875, Thread-8: Customer 6 ordered 1 meals
+19:46:05:0877, Thread-8: Customer 6 ordered takeaway...
+19:46:05:0880, Thread-2: Customer 6 left the shop.
+19:46:06:0843, Thread-1: Customer 7 is now created.
+19:46:06:0845, Thread-1: Customer 7 is waiting for a free seat.
+19:46:06:0848, Thread-2: Customer 7 has a seat now.
+19:46:06:0850, Thread-9: Customer 7 ordered 7 meals
+19:46:06:0853, Thread-9: Customer 7 is eating sushi now...
+19:46:07:0239, SushiBar is full!
+19:46:09:0749, Thread-7: Customer 5 ate sushi for 4001 ms
+19:46:09:0751, Thread-2: Customer 5 left the shop.
+19:46:13:0856, Thread-9: Customer 7 ate sushi for 7000 ms
+19:46:13:0858, Thread-2: Customer 7 left the shop.
+19:46:15:0430, Thread-5: Customer 3 ate sushi for 10000 ms
+19:46:15:0433, Thread-2: Customer 3 left the shop.
+19:46:15:0436, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:46:15:0439, Total Customers: 7 - Current Customers: 0 - Total Orders: 31 - Max Customers: 3
+19:46:27:0795, Thread-1: Customer 1 is now created.
+19:46:27:0810, Thread-1: Customer 1 is waiting for a free seat.
+19:46:27:0813, Thread-2: Customer 1 has a seat now.
+19:46:27:0816, Thread-3: Customer 1 ordered 8 meals
+19:46:27:0819, Thread-3: Customer 1 is eating sushi now...
+19:46:27:0862, Thread-1: Customer 2 is now created.
+19:46:27:0865, Thread-1: Customer 2 is waiting for a free seat.
+19:46:27:0868, Thread-2: Customer 2 has a seat now.
+19:46:27:0872, Thread-4: Customer 2 ordered 4 meals
+19:46:27:0875, Thread-4: Customer 2 ordered takeaway...
+19:46:27:0879, Thread-2: Customer 2 left the shop.
+19:46:27:0923, Thread-1: Customer 3 is now created.
+19:46:27:0925, Thread-1: Customer 3 is waiting for a free seat.
+19:46:27:0928, Thread-2: Customer 3 has a seat now.
+19:46:27:0931, Thread-5: Customer 3 ordered 5 meals
+19:46:27:0934, Thread-5: Customer 3 ordered takeaway...
+19:46:27:0936, Thread-2: Customer 3 left the shop.
+19:46:27:0985, Thread-1: Customer 4 is now created.
+19:46:27:0987, Thread-1: Customer 4 is waiting for a free seat.
+19:46:27:0990, Thread-2: Customer 4 has a seat now.
+19:46:27:0992, Thread-6: Customer 4 ordered 6 meals
+19:46:27:0995, Thread-6: Customer 4 ordered takeaway...
+19:46:27:0998, Thread-2: Customer 4 left the shop.
+19:46:28:0040, Thread-1: Customer 5 is now created.
+19:46:28:0042, Thread-1: Customer 5 is waiting for a free seat.
+19:46:28:0046, Thread-2: Customer 5 has a seat now.
+19:46:28:0048, Thread-7: Customer 5 ordered 10 meals
+19:46:28:0052, Thread-1: Customer 6 is now created.
+19:46:28:0055, Thread-7: Customer 5 ordered takeaway...
+19:46:28:0058, Thread-1: Customer 6 is waiting for a free seat.
+19:46:28:0061, Thread-2: Customer 5 left the shop.
+19:46:28:0064, Thread-2: Customer 6 has a seat now.
+19:46:28:0066, Thread-8: Customer 6 ordered 9 meals
+19:46:28:0069, Thread-8: Customer 6 ordered takeaway...
+19:46:28:0071, Thread-2: Customer 6 left the shop.
+19:46:28:0116, Thread-1: Customer 7 is now created.
+19:46:28:0118, Thread-1: Customer 7 is waiting for a free seat.
+19:46:28:0121, Thread-2: Customer 7 has a seat now.
+19:46:28:0124, Thread-9: Customer 7 ordered 9 meals
+19:46:28:0126, Thread-9: Customer 7 is eating sushi now...
+19:46:28:0185, Thread-1: Customer 8 is now created.
+19:46:28:0188, Thread-1: Customer 8 is waiting for a free seat.
+19:46:28:0191, Thread-2: Customer 8 has a seat now.
+19:46:28:0193, Thread-10: Customer 8 ordered 6 meals
+19:46:28:0196, Thread-10: Customer 8 is eating sushi now...
+19:46:28:0209, SushiBar is full!
+19:46:33:0507, Thread-1: Customer 1 is now created.
+19:46:33:0524, Thread-1: Customer 1 is waiting for a free seat.
+19:46:33:0527, Thread-2: Customer 1 has a seat now.
+19:46:33:0530, Thread-3: Customer 1 ordered 4 meals
+19:46:33:0534, Thread-3: Customer 1 is eating sushi now...
+19:46:33:0572, Thread-1: Customer 2 is now created.
+19:46:33:0574, Thread-1: Customer 2 is waiting for a free seat.
+19:46:33:0577, Thread-2: Customer 2 has a seat now.
+19:46:33:0580, Thread-4: Customer 2 ordered 6 meals
+19:46:33:0583, Thread-4: Customer 2 is eating sushi now...
+19:46:33:0644, Thread-1: Customer 3 is now created.
+19:46:33:0648, Thread-1: Customer 3 is waiting for a free seat.
+19:46:33:0651, Thread-2: Customer 3 has a seat now.
+19:46:33:0654, Thread-5: Customer 3 ordered 6 meals
+19:46:33:0658, Thread-5: Customer 3 is eating sushi now...
+19:46:33:0749, SushiBar is full!
+19:46:37:0537, Thread-3: Customer 1 ate sushi for 4001 ms
+19:46:37:0540, Thread-2: Customer 1 left the shop.
+19:46:39:0586, Thread-4: Customer 2 ate sushi for 6000 ms
+19:46:39:0589, Thread-2: Customer 2 left the shop.
+19:46:39:0661, Thread-5: Customer 3 ate sushi for 6000 ms
+19:46:39:0663, Thread-2: Customer 3 left the shop.
+19:46:39:0666, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:46:39:0669, Total Customers: 3 - Current Customers: 0 - Total Orders: 16 - Max Customers: 3
+19:47:29:0634, Thread-1: Customer 1 is now created.
+19:47:29:0648, Thread-1: Customer 1 is waiting for a free seat.
+19:47:29:0651, Thread-2: Customer 1 has a seat now.
+19:47:29:0655, Thread-3: Customer 1 ordered 9 meals
+19:47:29:0658, Thread-3: Customer 1 ordered takeaway...
+19:47:29:0661, Thread-2: Customer 1 left the shop.
+19:47:29:0693, Thread-1: Customer 2 is now created.
+19:47:29:0696, Thread-1: Customer 2 is waiting for a free seat.
+19:47:29:0698, Thread-2: Customer 2 has a seat now.
+19:47:29:0701, Thread-1: Customer 3 is now created.
+19:47:29:0705, Thread-4: Customer 2 ordered 2 meals
+19:47:29:0708, Thread-1: Customer 3 is waiting for a free seat.
+19:47:29:0711, Thread-4: Customer 2 ordered takeaway...
+19:47:29:0713, Thread-2: Customer 3 has a seat now.
+19:47:29:0717, Thread-2: Customer 2 left the shop.
+19:47:29:0720, Thread-5: Customer 3 ordered 8 meals
+19:47:29:0723, Thread-5: Customer 3 ordered takeaway...
+19:47:29:0725, Thread-2: Customer 3 left the shop.
+19:47:29:0754, Thread-1: Customer 4 is now created.
+19:47:29:0757, Thread-1: Customer 4 is waiting for a free seat.
+19:47:29:0760, Thread-2: Customer 4 has a seat now.
+19:47:29:0763, Thread-6: Customer 4 ordered 10 meals
+19:47:29:0767, Thread-6: Customer 4 is eating sushi now...
+19:47:29:0809, Thread-1: Customer 5 is now created.
+19:47:29:0812, Thread-1: Customer 5 is waiting for a free seat.
+19:47:29:0816, Thread-2: Customer 5 has a seat now.
+19:47:29:0819, Thread-7: Customer 5 ordered 7 meals
+19:47:29:0822, Thread-7: Customer 5 ordered takeaway...
+19:47:29:0825, Thread-2: Customer 5 left the shop.
+19:47:29:0880, Thread-1: Customer 6 is now created.
+19:47:29:0883, Thread-1: Customer 6 is waiting for a free seat.
+19:47:29:0886, Thread-2: Customer 6 has a seat now.
+19:47:29:0889, Thread-8: Customer 6 ordered 6 meals
+19:47:29:0892, Thread-8: Customer 6 is eating sushi now...
+19:47:29:0916, Thread-1: Customer 7 is now created.
+19:47:29:0919, Thread-1: Customer 7 is waiting for a free seat.
+19:47:29:0922, Thread-2: Customer 7 has a seat now.
+19:47:29:0925, Thread-9: Customer 7 ordered 4 meals
+19:47:29:0928, Thread-9: Customer 7 is eating sushi now...
+19:47:29:0958, SushiBar is full!
+19:47:33:0932, Thread-9: Customer 7 ate sushi for 4001 ms
+19:47:33:0935, Thread-2: Customer 7 left the shop.
+19:47:33:0937, Now there is a free eat in the shop.
+19:47:33:0940, Thread-1: Customer 8 is now created.
+19:47:33:0942, Thread-1: Customer 8 is waiting for a free seat.
+19:47:33:0945, Thread-2: Customer 8 has a seat now.
+19:47:33:0948, Thread-10: Customer 8 ordered 2 meals
+19:47:33:0951, Thread-10: Customer 8 ordered takeaway...
+19:47:33:0954, Thread-2: Customer 8 left the shop.
+19:47:33:0989, Thread-1: Customer 9 is now created.
+19:47:33:0991, Thread-1: Customer 9 is waiting for a free seat.
+19:47:33:0994, Thread-2: Customer 9 has a seat now.
+19:47:33:0998, Thread-11: Customer 9 ordered 5 meals
+19:47:34:0001, Thread-11: Customer 9 is eating sushi now...
+19:47:34:0030, SushiBar is full!
+19:47:35:0894, Thread-8: Customer 6 ate sushi for 6000 ms
+19:47:35:0897, Thread-2: Customer 6 left the shop.
+19:47:35:0899, Now there is a free eat in the shop.
+19:47:35:0902, Thread-1: Customer 10 is now created.
+19:47:35:0904, Thread-1: Customer 10 is waiting for a free seat.
+19:47:35:0906, Thread-2: Customer 10 has a seat now.
+19:47:35:0909, Thread-12: Customer 10 ordered 8 meals
+19:47:35:0912, Thread-12: Customer 10 is eating sushi now...
+19:47:39:0004, Thread-11: Customer 9 ate sushi for 5000 ms
+19:47:39:0006, Thread-2: Customer 9 left the shop.
+19:47:39:0771, Thread-6: Customer 4 ate sushi for 10001 ms
+19:47:39:0773, Thread-2: Customer 4 left the shop.
+19:47:43:0914, Thread-12: Customer 10 ate sushi for 8000 ms
+19:47:43:0917, Thread-2: Customer 10 left the shop.
+19:47:43:0919, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:47:43:0922, Total Customers: 10 - Current Customers: 0 - Total Orders: 61 - Max Customers: 3
+19:48:20:0244, Thread-1: Customer 1 is now created.
+19:48:20:0258, Thread-1: Customer 1 is waiting for a free seat.
+19:48:20:0261, Thread-2: Customer 1 has a seat now.
+19:48:20:0264, Thread-3: Customer 1 ordered 10 meals
+19:48:20:0267, Thread-3: Customer 1 is eating sushi now...
+19:48:20:0300, Thread-1: Customer 2 is now created.
+19:48:20:0302, Thread-1: Customer 2 is waiting for a free seat.
+19:48:20:0305, Thread-2: Customer 2 has a seat now.
+19:48:20:0308, Thread-4: Customer 2 ordered 6 meals
+19:48:20:0312, Thread-4: Customer 2 is eating sushi now...
+19:48:20:0381, Thread-1: Customer 3 is now created.
+19:48:20:0384, Thread-1: Customer 3 is waiting for a free seat.
+19:48:20:0387, Thread-2: Customer 3 has a seat now.
+19:48:20:0390, Thread-5: Customer 3 ordered 2 meals
+19:48:20:0393, Thread-5: Customer 3 ordered takeaway...
+19:48:20:0396, Thread-2: Customer 3 left the shop.
+19:48:20:0424, Thread-1: Customer 4 is now created.
+19:48:20:0427, Thread-1: Customer 4 is waiting for a free seat.
+19:48:20:0429, Thread-2: Customer 4 has a seat now.
+19:48:20:0433, Thread-6: Customer 4 ordered 5 meals
+19:48:20:0437, Thread-6: Customer 4 ordered takeaway...
+19:48:20:0441, Thread-2: Customer 4 left the shop.
+19:48:20:0521, Thread-1: Customer 5 is now created.
+19:48:20:0524, Thread-1: Customer 5 is waiting for a free seat.
+19:48:20:0527, Thread-2: Customer 5 has a seat now.
+19:48:20:0530, Thread-7: Customer 5 ordered 6 meals
+19:48:20:0534, Thread-7: Customer 5 is eating sushi now...
+19:48:20:0581, SushiBar is full!
+19:48:26:0315, Thread-4: Customer 2 ate sushi for 6000 ms
+19:48:26:0318, Thread-2: Customer 2 left the shop.
+19:48:26:0321, Now there is a free eat in the shop.
+19:48:26:0324, Thread-1: Customer 6 is now created.
+19:48:26:0327, Thread-1: Customer 6 is waiting for a free seat.
+19:48:26:0330, Thread-2: Customer 6 has a seat now.
+19:48:26:0333, Thread-8: Customer 6 ordered 4 meals
+19:48:26:0336, Thread-8: Customer 6 ordered takeaway...
+19:48:26:0339, Thread-2: Customer 6 left the shop.
+19:48:26:0537, Thread-7: Customer 5 ate sushi for 6001 ms
+19:48:26:0540, Thread-2: Customer 5 left the shop.
+19:48:30:0270, Thread-3: Customer 1 ate sushi for 10000 ms
+19:48:30:0273, Thread-2: Customer 1 left the shop.
+19:48:30:0276, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:48:30:0279, Total Customers: 6 - Current Customers: 0 - Total Orders: 33 - Max Customers: 3
+19:52:29:0996, Thread-1: Customer 1 is now created.
+19:52:30:0013, Thread-1: Customer 1 is waiting for a free seat.
+19:52:30:0017, Thread-2: Customer 1 has a seat now.
+19:52:30:0020, Thread-3: Customer 1 ordered 6 meals
+19:52:30:0024, Thread-3: Customer 1 ordered takeaway...
+19:52:30:0027, Thread-2: Customer 1 left the shop.
+19:52:31:0297, Thread-1: Customer 2 is now created.
+19:52:31:0301, Thread-1: Customer 2 is waiting for a free seat.
+19:52:31:0305, Thread-2: Customer 2 has a seat now.
+19:52:31:0308, Thread-4: Customer 2 ordered 7 meals
+19:52:31:0312, Thread-4: Customer 2 ordered takeaway...
+19:52:31:0315, Thread-2: Customer 2 left the shop.
+19:52:32:0739, Thread-1: Customer 3 is now created.
+19:52:32:0742, Thread-1: Customer 3 is waiting for a free seat.
+19:52:32:0745, Thread-2: Customer 3 has a seat now.
+19:52:32:0749, Thread-5: Customer 3 ordered 7 meals
+19:52:32:0752, Thread-5: Customer 3 ordered takeaway...
+19:52:32:0754, Thread-2: Customer 3 left the shop.
+19:52:32:0960, Thread-1: Customer 4 is now created.
+19:52:32:0963, Thread-1: Customer 4 is waiting for a free seat.
+19:52:32:0965, Thread-2: Customer 4 has a seat now.
+19:52:32:0968, Thread-6: Customer 4 ordered 3 meals
+19:52:32:0972, Thread-6: Customer 4 ordered takeaway...
+19:52:32:0976, Thread-2: Customer 4 left the shop.
+19:52:33:0390, Thread-1: Customer 5 is now created.
+19:52:33:0393, Thread-1: Customer 5 is waiting for a free seat.
+19:52:33:0397, Thread-2: Customer 5 has a seat now.
+19:52:33:0400, Thread-7: Customer 5 ordered 1 meals
+19:52:33:0403, Thread-7: Customer 5 ordered takeaway...
+19:52:33:0407, Thread-2: Customer 5 left the shop.
+19:52:33:0946, Thread-1: Customer 6 is now created.
+19:52:33:0950, Thread-1: Customer 6 is waiting for a free seat.
+19:52:33:0954, Thread-2: Customer 6 has a seat now.
+19:52:33:0957, Thread-8: Customer 6 ordered 10 meals
+19:52:33:0961, Thread-8: Customer 6 is eating sushi now...
+19:52:34:0171, Thread-1: Customer 7 is now created.
+19:52:34:0175, Thread-1: Customer 7 is waiting for a free seat.
+19:52:34:0179, Thread-2: Customer 7 has a seat now.
+19:52:34:0182, Thread-9: Customer 7 ordered 6 meals
+19:52:34:0185, Thread-9: Customer 7 ordered takeaway...
+19:52:34:0189, Thread-2: Customer 7 left the shop.
+19:52:34:0293, Thread-1: Customer 8 is now created.
+19:52:34:0297, Thread-1: Customer 8 is waiting for a free seat.
+19:52:34:0301, Thread-2: Customer 8 has a seat now.
+19:52:34:0304, Thread-10: Customer 8 ordered 10 meals
+19:52:34:0308, Thread-10: Customer 8 ordered takeaway...
+19:52:34:0312, Thread-2: Customer 8 left the shop.
+19:52:43:0965, Thread-8: Customer 6 ate sushi for 10001 ms
+19:52:43:0968, Thread-2: Customer 6 left the shop.
+19:52:43:0971, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:52:43:0974, Total Customers: 8 - Current Customers: 0 - Total Orders: 50 - Max Customers: 2
+19:53:50:0493, Thread-1: Customer 1 is now created.
+19:53:50:0510, Thread-1: Customer 1 is waiting for a free seat.
+19:53:50:0514, Thread-2: Customer 1 has a seat now.
+19:53:50:0519, Thread-3: Customer 1 ordered 7 meals
+19:53:50:0524, Thread-3: Customer 1 ordered takeaway...
+19:53:50:0528, Thread-2: Customer 1 left the shop.
+19:53:52:0003, Thread-1: Customer 2 is now created.
+19:53:52:0007, Thread-1: Customer 2 is waiting for a free seat.
+19:53:52:0010, Thread-2: Customer 2 has a seat now.
+19:53:52:0013, Thread-4: Customer 2 ordered 10 meals
+19:53:52:0016, Thread-4: Customer 2 ordered takeaway...
+19:53:52:0020, Thread-2: Customer 2 left the shop.
+19:53:52:0557, Thread-1: Customer 3 is now created.
+19:53:52:0560, Thread-1: Customer 3 is waiting for a free seat.
+19:53:52:0564, Thread-2: Customer 3 has a seat now.
+19:53:52:0567, Thread-5: Customer 3 ordered 1 meals
+19:53:52:0570, Thread-5: Customer 3 is eating sushi now...
+19:53:52:0830, Thread-1: Customer 4 is now created.
+19:53:52:0833, Thread-1: Customer 4 is waiting for a free seat.
+19:53:52:0837, Thread-2: Customer 4 has a seat now.
+19:53:52:0840, Thread-6: Customer 4 ordered 5 meals
+19:53:52:0844, Thread-6: Customer 4 is eating sushi now...
+19:53:52:0961, Thread-1: Customer 5 is now created.
+19:53:52:0965, Thread-1: Customer 5 is waiting for a free seat.
+19:53:52:0967, Thread-2: Customer 5 has a seat now.
+19:53:52:0971, Thread-7: Customer 5 ordered 3 meals
+19:53:52:0974, Thread-7: Customer 5 ordered takeaway...
+19:53:52:0978, Thread-2: Customer 5 left the shop.
+19:53:53:0573, Thread-5: Customer 3 ate sushi for 1000 ms
+19:53:53:0576, Thread-2: Customer 3 left the shop.
+19:53:53:0966, Thread-1: Customer 6 is now created.
+19:53:53:0969, Thread-1: Customer 6 is waiting for a free seat.
+19:53:53:0971, Thread-2: Customer 6 has a seat now.
+19:53:53:0975, Thread-8: Customer 6 ordered 2 meals
+19:53:53:0978, Thread-8: Customer 6 is eating sushi now...
+19:53:54:0245, Thread-1: Customer 7 is now created.
+19:53:54:0248, Thread-1: Customer 7 is waiting for a free seat.
+19:53:54:0250, Thread-2: Customer 7 has a seat now.
+19:53:54:0253, Thread-9: Customer 7 ordered 7 meals
+19:53:54:0258, Thread-9: Customer 7 is eating sushi now...
+19:53:55:0580, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:53:55:0982, Thread-8: Customer 6 ate sushi for 2000 ms
+19:53:55:0985, Thread-2: Customer 6 left the shop.
+19:53:57:0847, Thread-6: Customer 4 ate sushi for 5000 ms
+19:53:57:0850, Thread-2: Customer 4 left the shop.
+19:54:01:0262, Thread-9: Customer 7 ate sushi for 7001 ms
+19:54:01:0265, Thread-2: Customer 7 left the shop.
+19:54:01:0269, Total Customers: 7 - Current Customers: 0 - Total Orders: 35 - Max Customers: 3
+19:57:09:0806, Thread-1: Customer 1 is now created.
+19:57:09:0820, Thread-1: Customer 1 is waiting for a free seat.
+19:57:09:0823, Thread-2: Customer 1 has a seat now.
+19:57:09:0826, Thread-3: Customer 1 ordered 2 meals
+19:57:09:0829, Thread-3: Customer 1 is eating sushi now...
+19:57:10:0181, Thread-1: Customer 2 is now created.
+19:57:10:0184, Thread-1: Customer 2 is waiting for a free seat.
+19:57:10:0188, Thread-2: Customer 2 has a seat now.
+19:57:10:0191, Thread-4: Customer 2 ordered 4 meals
+19:57:10:0195, Thread-4: Customer 2 ordered takeaway...
+19:57:10:0198, Thread-2: Customer 2 left the shop.
+19:57:11:0186, Thread-1: Customer 3 is now created.
+19:57:11:0189, Thread-1: Customer 3 is waiting for a free seat.
+19:57:11:0192, Thread-2: Customer 3 has a seat now.
+19:57:11:0196, Thread-5: Customer 3 ordered 9 meals
+19:57:11:0200, Thread-5: Customer 3 is eating sushi now...
+19:57:11:0832, Thread-3: Customer 1 ate sushi for 2000 ms
+19:57:11:0835, Thread-2: Customer 1 left the shop.
+19:57:12:0148, Thread-1: Customer 4 is now created.
+19:57:12:0153, Thread-1: Customer 4 is waiting for a free seat.
+19:57:12:0160, Thread-2: Customer 4 has a seat now.
+19:57:12:0165, Thread-6: Customer 4 ordered 4 meals
+19:57:12:0171, Thread-6: Customer 4 is eating sushi now...
+19:57:12:0227, Thread-1: Customer 5 is now created.
+19:57:12:0231, Thread-1: Customer 5 is waiting for a free seat.
+19:57:12:0235, Thread-2: Customer 5 has a seat now.
+19:57:12:0239, SushiBar is full!
+19:57:12:0243, Thread-7: Customer 5 ordered 6 meals
+19:57:12:0247, Thread-7: Customer 5 ordered takeaway...
+19:57:12:0485, Thread-1: Customer 6 is now created.
+19:57:12:0489, Thread-1: Customer 6 is waiting for a free seat.
+19:57:13:0382, Thread-1: Customer 7 is now created.
+19:57:13:0386, Thread-1: Customer 7 is waiting for a free seat.
+19:57:14:0691, Thread-1: Customer 8 is now created.
+19:57:14:0696, Thread-1: Customer 8 is waiting for a free seat.
+19:57:15:0379, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+19:57:16:0180, Thread-6: Customer 4 ate sushi for 4001 ms
+19:57:20:0203, Thread-5: Customer 3 ate sushi for 9000 ms
+20:02:15:0669, Thread-1: Customer 1 is now created.
+20:02:15:0685, Thread-1: Customer 1 is waiting for a free seat.
+20:02:15:0689, Thread-2: Customer 1 has a seat now.
+20:02:15:0693, Thread-3: Customer 1 ordered 10 meals
+20:02:15:0699, Thread-3: Customer 1 is eating sushi now...
+20:02:16:0440, Thread-1: Customer 2 is now created.
+20:02:16:0445, Thread-1: Customer 2 is waiting for a free seat.
+20:02:16:0449, Thread-2: Customer 2 has a seat now.
+20:02:16:0453, Thread-4: Customer 2 ordered 8 meals
+20:02:16:0458, Thread-4: Customer 2 ordered takeaway...
+20:02:16:0464, Thread-2: Customer 2 left the shop.
+20:02:16:0988, Thread-1: Customer 3 is now created.
+20:02:16:0992, Thread-1: Customer 3 is waiting for a free seat.
+20:02:16:0998, Thread-2: Customer 3 has a seat now.
+20:02:17:0003, Thread-5: Customer 3 ordered 4 meals
+20:02:17:0008, Thread-5: Customer 3 ordered takeaway...
+20:02:17:0014, Thread-2: Customer 3 left the shop.
+20:02:17:0729, Thread-1: Customer 4 is now created.
+20:02:17:0733, Thread-1: Customer 4 is waiting for a free seat.
+20:02:17:0737, Thread-2: Customer 4 has a seat now.
+20:02:17:0741, Thread-6: Customer 4 ordered 7 meals
+20:02:17:0746, Thread-6: Customer 4 ordered takeaway...
+20:02:17:0751, Thread-2: Customer 4 left the shop.
+20:02:19:0042, Thread-1: Customer 5 is now created.
+20:02:19:0046, Thread-1: Customer 5 is waiting for a free seat.
+20:02:19:0051, Thread-2: Customer 5 has a seat now.
+20:02:19:0056, Thread-7: Customer 5 ordered 10 meals
+20:02:19:0061, Thread-7: Customer 5 is eating sushi now...
+20:02:20:0056, Thread-1: Customer 6 is now created.
+20:02:20:0061, Thread-1: Customer 6 is waiting for a free seat.
+20:02:20:0067, Thread-2: Customer 6 has a seat now.
+20:02:20:0072, Thread-8: Customer 6 ordered 6 meals
+20:02:20:0079, Thread-8: Customer 6 is eating sushi now...
+20:02:20:0724, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+20:02:25:0705, Thread-3: Customer 1 ate sushi for 10001 ms
+20:02:25:0710, Thread-2: Customer 1 left the shop.
+20:02:26:0084, Thread-8: Customer 6 ate sushi for 6000 ms
+20:02:26:0090, Thread-2: Customer 6 left the shop.
+20:02:29:0067, Thread-7: Customer 5 ate sushi for 10001 ms
+20:02:29:0071, Thread-2: Customer 5 left the shop.
+20:02:29:0076, Total Customers: 6 - Current Customers: 0 - Total Orders: 45 - Max Customers: 3
+17:50:57:0654, Thread-1: Customer 1 is now created.
+17:50:57:0716, Thread-1: Customer 1 is waiting for a free seat.
+17:50:57:0723, Thread-2: Customer 1 has a seat now.
+17:50:57:0731, Thread-3: Customer 1 ordered 4 meals
+17:50:57:0741, Thread-3: Customer 1 ordered takeaway...
+17:50:57:0750, Thread-2: Customer 1 left the shop.
+17:50:58:0401, Thread-1: Customer 2 is now created.
+17:50:58:0408, Thread-1: Customer 2 is waiting for a free seat.
+17:50:58:0415, Thread-2: Customer 2 has a seat now.
+17:50:58:0422, Thread-4: Customer 2 ordered 4 meals
+17:50:58:0431, Thread-4: Customer 2 is eating sushi now...
+17:50:58:0463, Thread-1: Customer 3 is now created.
+17:50:58:0471, Thread-1: Customer 3 is waiting for a free seat.
+17:50:58:0480, Thread-2: Customer 3 has a seat now.
+17:50:58:0488, Thread-5: Customer 3 ordered 9 meals
+17:50:58:0496, Thread-5: Customer 3 is eating sushi now...
+17:50:58:0642, Thread-1: Customer 4 is now created.
+17:50:58:0648, Thread-1: Customer 4 is waiting for a free seat.
+17:50:58:0655, Thread-2: Customer 4 has a seat now.
+17:50:58:0662, Thread-6: Customer 4 ordered 1 meals
+17:50:58:0682, Thread-6: Customer 4 is eating sushi now...
+17:50:59:0282, SushiBar is full!
+17:50:59:0693, Thread-6: Customer 4 ate sushi for 1001 ms
+17:50:59:0701, Thread-2: Customer 4 left the shop.
+17:50:59:0709, Now there is a free eat in the shop.
+17:50:59:0716, Thread-1: Customer 5 is now created.
+17:50:59:0723, Thread-1: Customer 5 is waiting for a free seat.
+17:50:59:0730, Thread-2: Customer 5 has a seat now.
+17:50:59:0737, Thread-7: Customer 5 ordered 2 meals
+17:50:59:0746, Thread-7: Customer 5 is eating sushi now...
+17:51:00:0413, SushiBar is full!
+17:51:01:0755, Thread-7: Customer 5 ate sushi for 2000 ms
+17:51:01:0762, Thread-2: Customer 5 left the shop.
+17:51:01:0769, Now there is a free eat in the shop.
+17:51:01:0776, Thread-1: Customer 6 is now created.
+17:51:01:0784, Thread-1: Customer 6 is waiting for a free seat.
+17:51:01:0793, Thread-2: Customer 6 has a seat now.
+17:51:01:0800, Thread-8: Customer 6 ordered 9 meals
+17:51:01:0809, Thread-8: Customer 6 is eating sushi now...
+17:51:02:0440, Thread-4: Customer 2 ate sushi for 4001 ms
+17:51:02:0447, Thread-2: Customer 2 left the shop.
+17:51:02:0956, ***** NO MORE CUSTOMERS - THE SHOP IS CLOSED NOW. *****
+17:51:07:0504, Thread-5: Customer 3 ate sushi for 9001 ms
+17:51:07:0511, Thread-2: Customer 3 left the shop.
+17:51:10:0819, Thread-8: Customer 6 ate sushi for 9001 ms
+17:51:10:0826, Thread-2: Customer 6 left the shop.
+17:51:10:0834, Total Customers: 6 - Current Customers: 0 - Total Orders: 29 - Max Customers: 3

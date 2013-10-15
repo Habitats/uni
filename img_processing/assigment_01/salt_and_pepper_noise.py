@@ -1,40 +1,28 @@
-import numpy as np
 from PIL import Image
+import numpy as np
 
-# helper functions
-def imageToNumpy(im):
-    return np.array(im)
+image = Image.open("testimages/mandrill.png")
+density = 1
 
-def numpyToImage(im):
-    return Image.fromarray(im)
+def saltnpepper(image, density = density):
+    """
+    Add black and white noise to an image.
+    1. generate a matrix which dictates which pixels to manipulate.
+    2. set the pixels we do not intent to manupulate to 0
+    3. apply the noise to our pixels
+    4. normalize the values to [0,255] # this is not required
+    5. return an image
+    
+    Note: 
+    We multiply by 510 because 0.5*510 = 255. This will ensure that
+    the salt and pepper noise actually becomes of of the extremas
+    """
+    noise = density * np.random.randn(*image.size)
+    np.putmask(noise, np.logical_and(noise < 0.5, noise > -0.5), 0)
 
-def saveImg(im, name):
-    im.save(name)
+    return Image.fromarray(np.asarray(image) + 510 * noise)
+#end saltnpepper
 
-# returns np array
-def readImageFromUrl(path):
-    return Image.open(path)
-
-def saltAndPepperNoise(image, density):
-    noise = np.random.randint(2, size = (image.shape[0], image.shape[1], 3))
-    image *= noise
-    return image
-
-path = "stinkbug.png"
-density = 2
-
-# load the image from file
-image = readImageFromUrl(path)
-arr = imageToNumpy(image)
-
-# apply salt & pepper noise
-arr = saltAndPepperNoise(arr, density)
-
-# convert to PIL image
-image = numpyToImage(arr)
-
-# save the image
-saveImg(image, "salt_and_pepper.png")
-
-# display the image in the default image viewer
+image = saltnpepper(image)
+image.convert("RGB").save("mandrill_noise_%i.png" % density)
 image.show()
