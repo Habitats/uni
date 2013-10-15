@@ -1,6 +1,12 @@
+package gui;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import roundRobin.Process;
+import roundRobin.Queue;
+import roundRobin.Simulator;
 
 /**
  * This class provides a GUI displaying the queueing network used to simulate

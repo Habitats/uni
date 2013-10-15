@@ -1,3 +1,7 @@
+package gui;
+
+import roundRobin.Process;
+
 /**
  * The GUI methods that are publicly available to other parts of the program.
  */

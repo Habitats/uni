@@ -1,3 +1,7 @@
+package roundRobin;
+
+import gui.Statistics;
+
 /**
  * This class implements functionality associated with the memory device of the
  * simulated system.

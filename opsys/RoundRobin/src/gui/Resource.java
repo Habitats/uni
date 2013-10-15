@@ -1,4 +1,9 @@
+package gui;
+
 import javax.swing.*;
+
+import roundRobin.Process;
+
 import java.awt.*;
 
 /**
