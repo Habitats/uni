@@ -61,7 +61,7 @@ public class Simulator implements Constants {
 		clock = 0;
 		// Add code as needed
 
-		cpu = new CPU(cpuQueue, gui);
+		cpu = new CPU(cpuQueue, gui, maxCpuTime,this, memory);
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class Simulator implements Constants {
 			// we let the process leave the system immediately, for now.
 			// memory.processCompleted(p);
 			// Try to use the freed memory:
-			// flushMemoryQueue();
+			flushMemoryQueue();
 			// Update statistics
 			p.updateStatistics(statistics);
 
@@ -259,7 +259,7 @@ public class Simulator implements Constants {
 			maxCpuTime = 500;
 			avgIoTime = 225;
 			simulationLength = 250000;
-			avgArrivalInterval = 500;
+			avgArrivalInterval = 1000;
 		}
 
 		SimulationGui gui = new SimulationGui(memorySize, maxCpuTime, avgIoTime, simulationLength, avgArrivalInterval);

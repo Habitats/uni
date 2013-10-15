@@ -11,6 +11,7 @@ public interface Constants {
 	public static final int IO_REQUEST = 4;
 	/** Event type describing the end of the current I/O operation */
 	public static final int END_IO = 5;
+	
 	/** The orientation SOUTH */
 	public final static int SOUTH = 0;
 	/** The orientation WEST */

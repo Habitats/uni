@@ -130,4 +130,10 @@ public class Process implements Constants {
 	}
 
 	// Add more methods as needed
+	public long getCpuTimeNeeded() {
+		return cpuTimeNeeded;
+	}
+	public void decreaseCpuTimeNeeded(long maxCpuTime) {
+		cpuTimeNeeded -= maxCpuTime;
+	}
 }
