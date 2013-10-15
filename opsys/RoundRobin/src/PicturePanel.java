@@ -19,7 +19,9 @@ public class PicturePanel extends JPanel implements Constants {
 
 	/**
 	 * Creates a new PicturePanel displaying a given image.
-	 * @param image	The image to be displayed.
+	 * 
+	 * @param image
+	 *            The image to be displayed.
 	 */
 	public PicturePanel(Image image) {
 		super();
@@ -29,9 +31,11 @@ public class PicturePanel extends JPanel implements Constants {
 	}
 
 	/**
-	 * Specifies an image to be shown on top of the background image.
-	 * In areas where the top image is transparent the background image will show.
-	 * @param newTop	The new overlay image to be displayed.
+	 * Specifies an image to be shown on top of the background image. In areas
+	 * where the top image is transparent the background image will show.
+	 * 
+	 * @param newTop
+	 *            The new overlay image to be displayed.
 	 */
 	public void setTopImage(Image newTop) {
 		topImage = newTop;
@@ -39,15 +43,18 @@ public class PicturePanel extends JPanel implements Constants {
 
 	/**
 	 * Specifies the orientation of the images being displayed.
-	 * @param or	The new image orientation.
+	 * 
+	 * @param or
+	 *            The new image orientation.
 	 */
-	public void setOrientation(int or){
+	public void setOrientation(int or) {
 		orientation = or;
 	}
 
 	/**
 	 * Returns the preferred size of this component.
-	 * @returns	The size of the images being displayed.
+	 * 
+	 * @returns The size of the images being displayed.
 	 */
 	public Dimension getPreferredSize() {
 		return new Dimension(imageWidth, imageHeight);
@@ -55,28 +62,36 @@ public class PicturePanel extends JPanel implements Constants {
 
 	/**
 	 * Sets the position and size of this component.
-	 * @param x	The x position of the top left corner.
-	 * @param y	The y position of the top left corner.
-	 * @param w	The width.
-	 * @param h	The height.
+	 * 
+	 * @param x
+	 *            The x position of the top left corner.
+	 * @param y
+	 *            The y position of the top left corner.
+	 * @param w
+	 *            The width.
+	 * @param h
+	 *            The height.
 	 */
 	public void setBounds(int x, int y, int w, int h) {
-		super.setBounds(x,y,w,h);
+		super.setBounds(x, y, w, h);
 		imageWidth = w;
 		imageHeight = h;
 	}
 
 	/**
 	 * Paints this compomnent.
-	 * @param g	The Graphics2D graphics content to paint this component in.
+	 * 
+	 * @param g
+	 *            The Graphics2D graphics content to paint this component in.
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2D = (Graphics2D) g;
-		if(orientation > 0)
-			g2D.rotate(Math.PI*orientation/2.0, imageWidth/2.0, imageHeight/2.0);
-		g.drawImage(image,0,0,imageWidth,imageHeight,this);
-		if(topImage != null)
-			g2D.drawImage(topImage,0,0,imageWidth,imageHeight,this);
+		if (orientation > 0)
+			g2D.rotate(Math.PI * orientation / 2.0, imageWidth / 2.0,
+					imageHeight / 2.0);
+		g.drawImage(image, 0, 0, imageWidth, imageHeight, this);
+		if (topImage != null)
+			g2D.drawImage(topImage, 0, 0, imageWidth, imageHeight, this);
 	}
 }
