@@ -60,7 +60,7 @@ public class Simulator implements Constants {
 		memory = new Memory(memoryQueue, memorySize, statistics);
 		clock = 0;
 		// Add code as needed
-		
+
 		cpu = new CPU(cpuQueue);
 	}
 
@@ -160,9 +160,9 @@ public class Simulator implements Constants {
 
 			// Since we haven't implemented the CPU and I/O device yet,
 			// we let the process leave the system immediately, for now.
-//			 memory.processCompleted(p);
+			// memory.processCompleted(p);
 			// Try to use the freed memory:
-//			flushMemoryQueue();
+			// flushMemoryQueue();
 			// Update statistics
 			p.updateStatistics(statistics);
 
@@ -238,7 +238,7 @@ public class Simulator implements Constants {
 		long avgArrivalInterval;
 
 		boolean predefined = false;
-		
+
 		if (predefined) {
 			memorySize = readLong(reader);
 			while (memorySize < 400) {
