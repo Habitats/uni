@@ -78,8 +78,7 @@ public class Memory {
 	 *            method.
 	 */
 	public void timePassed(long timePassed) {
-		statistics.memoryQueueLengthTime += memoryQueue.getQueueLength()
-				* timePassed;
+		statistics.memoryQueueLengthTime += memoryQueue.getQueueLength() * timePassed;
 		if (memoryQueue.getQueueLength() > statistics.memoryQueueLargestLength) {
 			statistics.memoryQueueLargestLength = memoryQueue.getQueueLength();
 		}

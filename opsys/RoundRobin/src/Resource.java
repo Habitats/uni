@@ -59,7 +59,6 @@ public class Resource extends JPanel {
 		if (activeProcess != null)
 			activeProcess.draw(g, w / 4, h / 2, w / 2, h / 4);
 		else
-			g.drawString("(Idle)", w / 2 - fm.stringWidth("(Idle)") / 2, 5 * h
-					/ 8 + fm.getHeight() / 2);
+			g.drawString("(Idle)", w / 2 - fm.stringWidth("(Idle)") / 2, 5 * h / 8 + fm.getHeight() / 2);
 	}
 }

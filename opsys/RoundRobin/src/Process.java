@@ -93,8 +93,7 @@ public class Process implements Constants {
 		g.drawRect(x, y, w, h);
 		g.setFont(font);
 		FontMetrics fm = g.getFontMetrics(font);
-		g.drawString("" + processId, x + w / 2 - fm.stringWidth("" + processId)
-				/ 2, y + h / 2 + fm.getHeight() / 2);
+		g.drawString("" + processId, x + w / 2 - fm.stringWidth("" + processId) / 2, y + h / 2 + fm.getHeight() / 2);
 	}
 
 	/**

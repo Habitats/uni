@@ -114,12 +114,10 @@ public class Queue extends JPanel implements Constants {
 			for (int i = 0; i < maxVisibleLength; i++) {
 				if (i < content.size()) {
 					Process p = (Process) content.get(i);
-					p.draw(g, w - (i + 1) * w / (maxVisibleLength + 1), 20, w
-							/ (maxVisibleLength + 1), h - 20);
+					p.draw(g, w - (i + 1) * w / (maxVisibleLength + 1), 20, w / (maxVisibleLength + 1), h - 20);
 				} else {
 					g.setColor(Color.black);
-					g.drawRect(w - (i + 1) * w / (maxVisibleLength + 1), 20, w
-							/ (maxVisibleLength + 1), h - 20);
+					g.drawRect(w - (i + 1) * w / (maxVisibleLength + 1), 20, w / (maxVisibleLength + 1), h - 20);
 				}
 			}
 			g.setColor(Color.red);
@@ -133,12 +131,10 @@ public class Queue extends JPanel implements Constants {
 			for (int i = 0; i < maxVisibleLength; i++) {
 				if (i < content.size()) {
 					Process p = (Process) content.get(i);
-					p.draw(g, i * w / (maxVisibleLength + 1), 20, w
-							/ (maxVisibleLength + 1), h - 20);
+					p.draw(g, i * w / (maxVisibleLength + 1), 20, w / (maxVisibleLength + 1), h - 20);
 				} else {
 					g.setColor(Color.black);
-					g.drawRect(i * w / (maxVisibleLength + 1), 20, w
-							/ (maxVisibleLength + 1), h - 20);
+					g.drawRect(i * w / (maxVisibleLength + 1), 20, w / (maxVisibleLength + 1), h - 20);
 				}
 			}
 			g.setColor(Color.red);

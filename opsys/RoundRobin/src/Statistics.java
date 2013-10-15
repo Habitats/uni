@@ -29,26 +29,14 @@ public class Statistics {
 		System.out.println();
 		System.out.println("Simulation statistics:");
 		System.out.println();
-		System.out
-				.println("Number of completed processes:                                "
-						+ nofCompletedProcesses);
-		System.out
-				.println("Number of created processes:                                  "
-						+ nofCreatedProcesses);
+		System.out.println("Number of completed processes:                                " + nofCompletedProcesses);
+		System.out.println("Number of created processes:                                  " + nofCreatedProcesses);
 		System.out.println();
-		System.out
-				.println("Largest occuring memory queue length:                         "
-						+ memoryQueueLargestLength);
-		System.out
-				.println("Average memory queue length:                                  "
-						+ (float) memoryQueueLengthTime / simulationLength);
+		System.out.println("Largest occuring memory queue length:                         " + memoryQueueLargestLength);
+		System.out.println("Average memory queue length:                                  " + (float) memoryQueueLengthTime / simulationLength);
 		if (nofCompletedProcesses > 0) {
-			System.out
-					.println("Average # of times a process has been placed in memory queue: " + 1);
-			System.out
-					.println("Average time spent waiting for memory per process:            "
-							+ totalTimeSpentWaitingForMemory
-							/ nofCompletedProcesses + " ms");
+			System.out.println("Average # of times a process has been placed in memory queue: " + 1);
+			System.out.println("Average time spent waiting for memory per process:            " + totalTimeSpentWaitingForMemory / nofCompletedProcesses + " ms");
 		}
 	}
 }

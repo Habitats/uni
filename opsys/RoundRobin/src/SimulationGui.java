@@ -6,8 +6,7 @@ import javax.swing.*;
  * This class provides a GUI displaying the queueing network used to simulate
  * our system.
  */
-public class SimulationGui extends JFrame implements Constants, ActionListener,
-		Runnable, Gui {
+public class SimulationGui extends JFrame implements Constants, ActionListener, Runnable, Gui {
 	/** Queue components shown in the GUI */
 	private Queue memoryQueue, cpuQueue, ioQueue;
 	/** Resources components shown in the GUI */
@@ -45,16 +44,13 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 	 * @param avgArrivalInterval
 	 *            The average time between new process arrivals.
 	 */
-	public SimulationGui(long memorySize, long maxCpuTime, long avgIoTime,
-			long simulationLength, long avgArrivalInterval) {
+	public SimulationGui(long memorySize, long maxCpuTime, long avgIoTime, long simulationLength, long avgArrivalInterval) {
 		super("Process scheduling simulator");
 		memoryQueue = new Queue("memory queue", 10, EAST);
 		cpuQueue = new Queue("CPU queue", 10, WEST);
 		ioQueue = new Queue("I/O queue", 10, EAST);
 		timeElapsed = 0;
-		simulator = new Simulator(memoryQueue, cpuQueue, ioQueue, memorySize,
-				maxCpuTime, avgIoTime, simulationLength, avgArrivalInterval,
-				this);
+		simulator = new Simulator(memoryQueue, cpuQueue, ioQueue, memorySize, maxCpuTime, avgIoTime, simulationLength, avgArrivalInterval, this);
 		placeComponents();
 		setSize(500, 500);
 		setResizable(false);
@@ -95,11 +91,9 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 		lowerPanel.setBounds(0, 374, 494, 100);
 		simulationSpeedSlider = new JSlider(0, 10000, 8000);
 		lowerPanel.add(simulationSpeedSlider);
-		addSliderLabels(lowerPanel, 10, 10, 474, 20, "Slow", "Fast",
-				"Simulation speed");
+		addSliderLabels(lowerPanel, 10, 10, 474, 20, "Slow", "Fast", "Simulation speed");
 		simulationSpeedSlider.setBounds(10, 30, 474, 20);
-		timeElapsedLabel = new JLabel("Simulated time elapsed: " + timeElapsed
-				+ " ms.");
+		timeElapsedLabel = new JLabel("Simulated time elapsed: " + timeElapsed + " ms.");
 		lowerPanel.add(timeElapsedLabel);
 		timeElapsedLabel.setBounds(10, 60, 300, 20);
 		startButton = new JButton("Start simulation");
@@ -157,8 +151,7 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 	 * @param text
 	 *            The text to be displayed in the central label.
 	 */
-	private void addSliderLabels(JPanel p, int x, int y, int w, int h,
-			String leftText, String rightText, String text) {
+	private void addSliderLabels(JPanel p, int x, int y, int w, int h, String leftText, String rightText, String text) {
 		JLabel left, middle, right;
 		left = new JLabel(leftText);
 		left.setHorizontalAlignment(SwingConstants.LEFT);
@@ -212,13 +205,11 @@ public class SimulationGui extends JFrame implements Constants, ActionListener,
 	@Override
 	public void timePassed(long time) {
 		timeElapsed += time;
-		timeElapsedLabel.setText("Simulated time elapsed: " + timeElapsed
-				+ " ms.");
+		timeElapsedLabel.setText("Simulated time elapsed: " + timeElapsed + " ms.");
 		timeElapsedLabel.repaint();
 		try {
 			if (sleep && isShowing())
-				Thread.sleep((10000 - simulationSpeedSlider.getValue()) * time
-						/ 3000);
+				Thread.sleep((10000 - simulationSpeedSlider.getValue()) * time / 3000);
 		} catch (InterruptedException ie) {
 		}
 	}
