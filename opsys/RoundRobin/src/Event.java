@@ -5,7 +5,7 @@
  * @see EventQueue
  * @see Constants
  */
-public class Event implements Comparable {
+public class Event implements Comparable<Object> {
 	/** The sort of event */
 	private int type;
 	/** The time at which the event will occur */

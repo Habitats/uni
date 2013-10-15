@@ -6,6 +6,7 @@ import javax.swing.*;
  * This class provides a GUI displaying the queueing network used to simulate
  * our system.
  */
+@SuppressWarnings("serial")
 public class SimulationGui extends JFrame implements Constants, ActionListener, Runnable, Gui {
 	/** Queue components shown in the GUI */
 	private Queue memoryQueue, cpuQueue, ioQueue;

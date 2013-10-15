@@ -6,6 +6,7 @@ import java.awt.*;
  * resource may represent a CPU, memory, etc, and is displayed as a circle with
  * a name. The resource may also contain an active process.
  */
+@SuppressWarnings("serial")
 public class Resource extends JPanel {
 	/** The name of the resource */
 	private String name;

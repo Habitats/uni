@@ -7,6 +7,7 @@ import java.awt.*;
  * functionality, as well as serving as a graphical component. This means that
  * updates to the queue will be automatically displayed in the GUI.
  */
+@SuppressWarnings("serial")
 public class Queue extends JPanel implements Constants {
 	/** The content of the queue */
 	private ArrayList<Object> content;

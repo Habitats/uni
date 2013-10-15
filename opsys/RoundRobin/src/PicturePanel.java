@@ -5,6 +5,7 @@ import javax.swing.*;
  * Component used by the GUI to display an image, with an optional overlay image
  * and four possible orientations.
  */
+@SuppressWarnings("serial")
 public class PicturePanel extends JPanel implements Constants {
 	/** The image being displayed by this component */
 	private Image image;
