@@ -174,5 +174,21 @@ public class Process implements Constants {
 		leftCpu = clock;
 		timeOfLastEvent = clock;
 	}
+	
+	public void setTimeToIo() {
+		timeToNextIoOperation = (long) (Math.random() * avgIoInterval * 2 + 1);
+	}
 
+	public long getTimeToNextIoOperation() {
+		return timeToNextIoOperation;
+	}
+
+	public void enteredIoQueue(long clock) {
+		enteredIoQueue = clock;
+	}
+
+	public void leftIoQueue(long clock) {
+		leftIoQueue = clock;
+		timeSpentWaitingForIo = leftIoQueue - enteredIoQueue;
+	}
 }

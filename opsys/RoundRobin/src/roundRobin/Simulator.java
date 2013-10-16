@@ -27,6 +27,7 @@ public class Simulator implements Constants {
 
 	// Add member variables as needed
 	private CPU cpu;
+	private IO io;
 
 	/**
 	 * Constructs a scheduling simulator with the given parameters.
@@ -62,6 +63,7 @@ public class Simulator implements Constants {
 		// Add code as needed
 
 		cpu = new CPU(cpuQueue, gui, maxCpuTime, statistics, eventQueue);
+		io = new IO(ioQueue, eventQueue, statistics, gui);
 	}
 
 	/**
@@ -179,14 +181,23 @@ public class Simulator implements Constants {
 	 * Processes an event signifying that the active process needs to perform an I/O operation.
 	 */
 	private void processIoRequest() {
-		// Incomplete
+		Process p = cpu.getActiveProcess();
+		cpu.setActiveProcess(null);
+		io.startIO(p, clock);
+		p.leftCpu(clock);
+		cpu.startNextProcess(clock);
+		
 	}
 
 	/**
 	 * Processes an event signifying that the process currently doing I/O is done with its I/O operation.
 	 */
 	private void endIoOperation() {
-		// Incomplete
+		Process p = io.getActiveProcess();
+		io.endIO(clock);
+		cpu.insertProcess(p, clock);
+//		cpu.startNextProcess(clock);
+		statistics.totalIoOperations++;
 	}
 
 	/**
@@ -253,7 +264,7 @@ public class Simulator implements Constants {
 			maxCpuTime = 500;
 			avgIoTime = 225;
 			simulationLength = 250000;
-			avgArrivalInterval = 200;
+			avgArrivalInterval = 5000;
 		}
 
 		SimulationGui gui = new SimulationGui(memorySize, maxCpuTime, avgIoTime, simulationLength, avgArrivalInterval);

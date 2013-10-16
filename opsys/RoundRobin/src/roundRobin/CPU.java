@@ -46,10 +46,9 @@ public class CPU implements Constants {
 			setActiveProcess(null);
 			insertProcess(p, clock);
 		}
-		// startNextProcess(clock);
 	}
 
-	private void startNextProcess(long clock) {
+	public void startNextProcess(long clock) {
 		Process p = null;
 
 		if (!cpuQueue.isEmpty()) {
@@ -64,11 +63,21 @@ public class CPU implements Constants {
 
 	private void generateEvent(Process p, long clock) {
 		Event evt = null;
+		boolean enableIo = true;
 		if (p.getCpuTimeNeeded() <= maxCpuTime)
-			evt = new Event(END_PROCESS, clock + p.getCpuTimeNeeded());
+			if (enableIo && p.getTimeToNextIoOperation() < p.getCpuTimeNeeded())
+				evt = new Event(IO_REQUEST, clock + p.getTimeToNextIoOperation());
+			else {
+				evt = new Event(END_PROCESS, clock + p.getCpuTimeNeeded());
+			}
 		else if (p.getCpuTimeNeeded() > maxCpuTime) {
-			p.decreaseCpuTimeNeeded(maxCpuTime);
-			evt = new Event(SWITCH_PROCESS, clock);
+			if (enableIo && p.getTimeToNextIoOperation() < p.getCpuTimeNeeded()) {
+				p.decreaseCpuTimeNeeded(maxCpuTime);
+				evt = new Event(IO_REQUEST, clock + p.getTimeToNextIoOperation());
+			} else {
+				p.decreaseCpuTimeNeeded(maxCpuTime);
+				evt = new Event(SWITCH_PROCESS, clock);
+			}
 		}
 
 		eventQueue.insertEvent(evt);

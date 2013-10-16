@@ -143,4 +143,8 @@ public class Queue extends JPanel implements Constants {
 			break;
 		}
 	}
+
+	public ArrayList<Object> getList() {
+		return content;
+	}
 }
