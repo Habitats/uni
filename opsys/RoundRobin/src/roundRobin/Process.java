@@ -1,9 +1,10 @@
 package roundRobin;
 
 import gui.Constants;
-import gui.Statistics;
 
 import java.awt.*;
+
+import javax.naming.TimeLimitExceededException;
 
 /**
  * This class contains data associated with processes, and methods for manipulating this data as well as methods for displaying a process in the GUI.
@@ -46,6 +47,19 @@ public class Process implements Constants {
 
 	/** The global time of the last event involving this process */
 	private long timeOfLastEvent;
+
+	// extra
+	private long enteredMemoryQueue = 0;
+	private long leftMemoryQueue = 0;
+
+	private long enteredReadyQueue = 0;
+	private long leftReadyQueue = 0;
+
+	private long enteredCpu = 0;
+	private long leftCpu = 0;
+
+	private long enteredIoQueue = 0;
+	private long leftIoQueue = 0;
 
 	/**
 	 * Creates a new process with given parameters. Other parameters are randomly determined.
@@ -106,6 +120,7 @@ public class Process implements Constants {
 	 */
 	public void leftMemoryQueue(long clock) {
 		timeSpentWaitingForMemory += clock - timeOfLastEvent;
+		leftMemoryQueue = clock;
 		timeOfLastEvent = clock;
 	}
 
@@ -125,15 +140,39 @@ public class Process implements Constants {
 	 *            The Statistics object to be updated.
 	 */
 	public void updateStatistics(Statistics statistics) {
-		statistics.totalTimeSpentWaitingForMemory += timeSpentWaitingForMemory;
 		statistics.nofCompletedProcesses++;
+		statistics.totalTimeSpentWaitingForMemory += timeSpentWaitingForMemory;
+
+		statistics.totalProcessSwitches += nofTimesInReadyQueue;
+		statistics.totalIoOperations += nofTimesInIoQueue;
+
+		statistics.totalTimeSpentInCpu += timeSpentInCpu;
+
+		statistics.totalTimeSpentInReadyQueue += timeSpentInReadyQueue;
+		statistics.totalTimeSpentInIoQueue += timeSpentWaitingForIo;
+
 	}
 
 	// Add more methods as needed
 	public long getCpuTimeNeeded() {
 		return cpuTimeNeeded;
 	}
+
+	public void enteredCpu(long clock) {
+		enteredCpu = clock;
+		timeSpentInReadyQueue += clock - leftMemoryQueue;
+		timeOfLastEvent = clock;
+	}
+
 	public void decreaseCpuTimeNeeded(long maxCpuTime) {
 		cpuTimeNeeded -= maxCpuTime;
 	}
+
+	public void leftCpu(long clock) {
+		long timeSpentInCpuThisSession = clock - timeOfLastEvent;
+		timeSpentInCpu += timeSpentInCpuThisSession;
+		leftCpu = clock;
+		timeOfLastEvent = clock;
+	}
+
 }

@@ -3,7 +3,6 @@ package roundRobin;
 import gui.Constants;
 import gui.Gui;
 import gui.SimulationGui;
-import gui.Statistics;
 
 import java.io.*;
 
@@ -55,13 +54,14 @@ public class Simulator implements Constants {
 		this.simulationLength = simulationLength;
 		this.avgArrivalInterval = avgArrivalInterval;
 		this.gui = gui;
+		
 		statistics = new Statistics();
 		eventQueue = new EventQueue();
 		memory = new Memory(memoryQueue, memorySize, statistics);
 		clock = 0;
 		// Add code as needed
 
-		cpu = new CPU(cpuQueue, gui, maxCpuTime,this, memory);
+		cpu = new CPU(cpuQueue, gui, maxCpuTime, statistics, eventQueue);
 	}
 
 	/**
@@ -77,7 +77,6 @@ public class Simulator implements Constants {
 		while (clock < simulationLength && !eventQueue.isEmpty()) {
 			// Find the next event
 			Event event = eventQueue.getNextEvent();
-
 			// Find out how much time that passed...
 			long timeDifference = event.getTime() - clock;
 			// ...and update the clock.
@@ -85,11 +84,11 @@ public class Simulator implements Constants {
 			// Let the memory unit and the GUI know that time has passed
 			memory.timePassed(timeDifference);
 			gui.timePassed(timeDifference);
+			// io.timePassed(timeDifference);
 			// Deal with the event
 			if (clock < simulationLength) {
 				processEvent(event);
 			}
-
 			// Note that the processing of most events should lead to new
 			// events being added to the event queue!
 
@@ -136,6 +135,8 @@ public class Simulator implements Constants {
 		// Add an event for the next process arrival
 		long nextArrivalTime = clock + 1 + (long) (2 * Math.random() * avgArrivalInterval);
 		eventQueue.insertEvent(new Event(NEW_PROCESS, nextArrivalTime));
+		// to initate the switch loop
+//		eventQueue.insertEvent(new Event(SWITCH_PROCESS, 0));
 		// Update statistics
 		statistics.nofCreatedProcesses++;
 	}
@@ -150,17 +151,7 @@ public class Simulator implements Constants {
 		while (p != null) {
 
 			// TODO: Add this process to the CPU queue!
-			cpu.insertProcess(p);
-
-			// Also add new events to the event queue if needed
-
-			// Since we haven't implemented the CPU and I/O device yet,
-			// we let the process leave the system immediately, for now.
-			// memory.processCompleted(p);
-			// Try to use the freed memory:
-			flushMemoryQueue();
-			// Update statistics
-			p.updateStatistics(statistics);
+			cpu.insertProcess(p,clock);
 
 			// Check for more free memory
 			p = memory.checkMemory(clock);
@@ -171,7 +162,7 @@ public class Simulator implements Constants {
 	 * Simulates a process switch.
 	 */
 	private void switchProcess() {
-		// Incomplete
+		cpu.switchProcess(clock);
 	}
 
 	/**
@@ -179,6 +170,9 @@ public class Simulator implements Constants {
 	 */
 	private void endProcess() {
 		// Incomplete
+		memory.processCompleted(cpu.getActiveProcess());
+		cpu.endProcess(clock);
+		statistics.nofCompletedProcesses++;
 	}
 
 	/**
@@ -259,7 +253,7 @@ public class Simulator implements Constants {
 			maxCpuTime = 500;
 			avgIoTime = 225;
 			simulationLength = 250000;
-			avgArrivalInterval = 1000;
+			avgArrivalInterval = 200;
 		}
 
 		SimulationGui gui = new SimulationGui(memorySize, maxCpuTime, avgIoTime, simulationLength, avgArrivalInterval);
