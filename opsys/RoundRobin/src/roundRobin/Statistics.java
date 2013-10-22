@@ -27,6 +27,7 @@ public class Statistics {
 	public long totalTimeSpentInReadyQueue = 0;
 	public long totalTimeSpentInIoQueue = 0;
 	public long totalTimeCpuIdle = 0;
+	public long totalTimesInCpu = 0;
 
 	/**
 	 * Prints out a report summarizing all collected data about the simulation.
@@ -63,8 +64,8 @@ public class Statistics {
 
 		if (nofCompletedProcesses > 0) {
 			System.out.println("Average # of times a process has been placed in memory queue: " + 1);
-			System.out.println("Average # of times a process has been placed in cpu queue:    " + 0);
-			System.out.println("Average # of times a process has been placed in I/O queue:    " + 0);
+			System.out.println("Average # of times a process has been placed in cpu queue:    " + (float) totalTimesInCpu / nofCompletedProcesses);
+			System.out.println("Average # of times a process has been placed in I/O queue:    " + (float) totalIoOperations / nofCompletedProcesses);
 			System.out.println();
 
 			System.out.println("Average time spent in system per process:                     " + simulationLength / nofCompletedProcesses + " ms");

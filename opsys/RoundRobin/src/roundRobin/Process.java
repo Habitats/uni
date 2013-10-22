@@ -60,6 +60,7 @@ public class Process implements Constants {
 
 	private long enteredIoQueue = 0;
 	private long leftIoQueue = 0;
+	private long timesBeenInCpu = 0;
 
 	/**
 	 * Creates a new process with given parameters. Other parameters are randomly determined.
@@ -150,6 +151,8 @@ public class Process implements Constants {
 
 		statistics.totalTimeSpentInReadyQueue += timeSpentInReadyQueue;
 		statistics.totalTimeSpentInIoQueue += timeSpentWaitingForIo;
+		
+		statistics.totalTimesInCpu += timesBeenInCpu;
 
 	}
 
@@ -162,6 +165,7 @@ public class Process implements Constants {
 		enteredCpu = clock;
 		timeSpentInReadyQueue += clock - leftMemoryQueue;
 		timeOfLastEvent = clock;
+		timesBeenInCpu++;
 	}
 
 	public void decreaseCpuTimeNeeded(long maxCpuTime) {
