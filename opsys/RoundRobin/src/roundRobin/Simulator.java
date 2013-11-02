@@ -235,7 +235,7 @@ public class Simulator implements Constants {
 		long simulationLength;
 		long avgArrivalInterval;
 
-		boolean predefined = false;
+		boolean predefined = true;
 
 		if (predefined) {
 			memorySize = readLong(reader);
@@ -262,7 +262,7 @@ public class Simulator implements Constants {
 		} else {
 			memorySize = 2048;
 			maxCpuTime = 500;
-			avgIoTime = 225;
+			avgIoTime = 5000;
 			simulationLength = 250000;
 			avgArrivalInterval = 5000;
 		}

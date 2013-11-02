@@ -77,7 +77,8 @@ public class Process implements Constants {
 		cpuTimeNeeded = 100 + (long) (Math.random() * 9900);
 		// Average interval between I/O requests varies from 1% to 25% of CPU
 		// time needed
-		avgIoInterval = (1 + (long) (Math.random() * 25)) * cpuTimeNeeded / 100;
+		avgIoInterval= (1 + (long) (Math.random() * 25)) * 5000 / 100;
+//		avgIoInterval = (1 + (long) (Math.random() * 25)) * cpuTimeNeeded / 100;
 		// The first and latest event involving this process is its creation
 		timeOfLastEvent = creationTime;
 		// Assign a process ID
