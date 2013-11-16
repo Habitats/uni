@@ -1,5 +1,5 @@
-function image_processing()
-    path = 'projectimages/sweetsA02.png';
+function image_processing(path)
+%     path = 'projectimages/sweetsA01.png';
     %     03
     %     blue:    16
     %     green:   16
@@ -25,7 +25,6 @@ function image_processing()
 
     % find circles
     [centers, radii, circles] = identifyCircles(I);
-    imshow(circles);
     viscircles(centers, radii,'EdgeColor','b');
     
     % create an image where each circle center is represented by a 1
@@ -48,8 +47,7 @@ function image_processing()
     
     % count the number of pixles with a given color
     colorPalette = countColors(I, colors);
-    
-    imshow(I);
+
     % draw circles on the currently active image
     viscircles(centers, radii,'EdgeColor','b');
 
@@ -64,7 +62,8 @@ function image_processing()
     imwrite(processed, 'processed.png');
     imwrite(I,'image.png');
     
-    writeCircles(colorPalette);
+    writeCircles(colorPalette, path);
+    exit;
 end
 
 function processed = identifyColors(I)
@@ -84,7 +83,6 @@ function processed = identifyColors(I)
     bg = imfilter(bg, fspecial('gaussian',30,30),'symmetric');
     bg = imcomplement(bg); 
     
-    imshow(processed)
     imwrite(processed, 'processed.png');
 end
 
@@ -121,7 +119,6 @@ function colorPalette = countColors(I, colors)
         % find the first colored circle
         [y,x] = find(colors>0,1);
         
-        imshow(colors)
         similarColors = double(rgb2gray(colors)>0);
 
         
@@ -134,12 +131,8 @@ function colorPalette = countColors(I, colors)
             dt = 40; 
             i = 1;
             for j = colors(y,x,:)
-                
                 similarColorsSingleChannel = (colors(:,:,i) <= (j + dt)) .* (colors(:,:,i) > (j - dt));
-                imshow(similarColorsSingleChannel)
-                
                 similarColors = similarColors .* similarColorsSingleChannel;
-                imshow(similarColors)
                 i = i + 1;   
             end
         else
@@ -154,13 +147,9 @@ function colorPalette = countColors(I, colors)
         
         % remove the objects that have the same color from the original
         % image so that we can proceed with a new color
-        imshow(similarColors)
         similarColors = uint8(repmat(similarColors,[1,1,3]));
         matched = colors .* similarColors;
-        imshow(matched)
-        imshow(colors)
         colors = colors - matched;
-        imshow(colors)
 
         % calculate the rgb-value for the current color and save them in a
         % hashtable
@@ -179,9 +168,11 @@ function colorPalette = countColors(I, colors)
     end
 end
 
-function writeCircles(colorPalette)
+function writeCircles(colorPalette, path)
     % format: index-numberOfSimilar-rrr:ggg:bbb-x:y
     f = fopen('circles.txt', 'w');
+    
+    fprintf(f, sprintf('%s\r\n',path));
     for i = 1:length(colorPalette)
         rgb = sprintf('%i:',colorPalette(i).rgb(:));
         rgb = rgb(1:end-1);
@@ -195,6 +186,7 @@ function writeCircles(colorPalette)
         fprintf(f, line);
         fprintf(line);
     end
+    
         
     fclose(f);
 end

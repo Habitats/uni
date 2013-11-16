@@ -5,26 +5,11 @@ from OpenGLContext.arrays import *
 from OpenGL.GL import *
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
+
+# non-openGL stuff
 import time
-from PIL import Image
+from fetchData import *
 
-def readData(filename):
-    f = open(filename, 'r')
-    data = []
-    for line in f:
-        index, numSim, rgb, pairs = line.split('-')
-        pairs = pairs.split(':')
-        rgb = rgb.split(':')
-        color = {
-             'index':index,
-             'numSim': numSim,
-             'rgb': rgb,
-             'pairs' : pairs
-        }
-        data.append(color)
-
-    f.close()
-    return data
 
 class Context(BaseContext):
 
@@ -335,7 +320,7 @@ class Context(BaseContext):
             # #|#
             # #|#
             # # #
-            if n in [0, 2, 3, 4, 5, 6, 7, 8, 9]:
+            if n in [0, 2, 3, 4, 7, 8, 9]:
                 glVertex3f(1, 1, 0)
                 glVertex3f(0.5, 1, 0)
                 glVertex3f(0.5, 0, 0)
@@ -403,8 +388,7 @@ class Context(BaseContext):
 
 
     def OnInit(self):
-        self.image = Image.open('projectimages/sweetsA02.png')
-        self.data = readData('circles.txt')
+        self.data, self.image = readData('circles.txt')
 
         def constructShapes(data):
             for i in data:
@@ -417,10 +401,8 @@ class Context(BaseContext):
 
         constructShapes(self.data)
 
-
         width, height = self.image.size
         glutReshapeWindow(width, height)
-        None
 
 if __name__ == "__main__":
     Context.ContextMainLoop()
