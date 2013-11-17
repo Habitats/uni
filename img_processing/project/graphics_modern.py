@@ -7,26 +7,43 @@ from OpenGL.GL import *
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
 from OpenGLContext.events.timer import Timer
+
+# non openGL stuff
 import time
 from PIL import Image
+from fetchData import *
+from pyglm import *
 
-def readData(filename):
-    f = open(filename, 'r')
-    data = []
-    for line in f:
-        index, numSim, rgb, pairs = line.split('-')
-        pairs = pairs.split(':')
-        rgb = rgb.split(':')
-        color = {
-             'index':index,
-             'numSim': numSim,
-             'rgb': rgb,
-             'pairs' : pairs
-        }
-        data.append(color)
 
-    f.close()
-    return data
+vertexShader = '''
+varying vec3 normal;
+uniform mat4 mMatrix;
+uniform mat4 vMatrix;
+uniform mat4 pMatrix;
+
+void main() {
+    normal = gl_NormalMatrix * gl_Normal;
+    gl_Position = gl_ModelViewProjectionMatrix * pMatrix * vMatrix * mMatrix* gl_Vertex;
+}
+'''
+
+fragmentShader = '''
+uniform vec3 light_location;
+varying vec3 normal;
+void main() {
+    float intensity;
+    vec4 color;
+    vec3 n = normalize(normal);
+    vec3 l = normalize(light_location).xyz;
+
+    // quantize to 5 steps (0, .25, .5, .75 and 1)
+    intensity = (floor(dot(l, n) * 4.0) + 1.0)/4.0;
+    color = vec4(intensity*1.0, intensity*0.5, intensity*0.5,
+        intensity*1.0);
+
+    gl_FragColor = color;
+}
+'''
 
 class Context(BaseContext):
 
@@ -39,55 +56,65 @@ class Context(BaseContext):
         return 1
 
     # Render function is called after the OpenGL setup code is done
+#    rot = identity()
     light_location = (0, 10, 5)
+    mMatrix = identity()
+    vMatrix = identity()
+    pMatrix = identity()
+
     def Render(self, mode = 0):
 
-        def move(x, y , z = -29.0, color = None, image = self.image):
-            glLoadIdentity()
-            lx = -23 + x / 12.
-            ly = +17 + -y / 12.
-            glTranslatef(lx, ly, z);
-            rotate(5)
 
-        # speed = duration for each rotation
-        def rotate(speed):
-            glRotate(time.time() % (speed) / speed * -360, 1, 1, 0)
-
-        def color(r, g, b):
-            glColor3f(r / 255., g / 255., b / 255.)
-
-        """Render the scene geometry"""
         BaseContext.Render(self, mode)
         glUseProgram(self.program)
+
+        # animate
+#        self.mMatrix = translate(5, 2, 0)
+        speed = 5
+        self.mMatrix = identity()
+#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10, 'x', self.mMatrix)
+        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10  , 'z', self.mMatrix)
+#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10 , 'y', self.mMatrix)
+#        self.vMatrix = translate(0, 1, 0)
+
+        self.vMatrix = rotate(time.time() % (speed) / speed * -360 * 10 , 'x')
+
+
+        # modify the light location in the shader, number of matrices,
         glUniform3fv(self.light_uniform_loc, 1, self.light_location)
+        glUniformMatrix4fv(self.mMatrixId, 1, GL_FALSE, self.mMatrix)
+        glUniformMatrix4fv(self.vMatrixId, 1, GL_FALSE, self.vMatrix)
+        glUniformMatrix4fv(self.pMatrixId, 1, GL_FALSE, self.pMatrix)
+
         glDisable(GL_LIGHTING)
         glDisable(GL_CULL_FACE)
         glFrontFace(GL_CW)
 
-        for i in self.data:
-            r, g, b = i.get('rgb')
-            r, g, b = double(r), double(g), double(b)
-            numSim = int(i.get('numSim'))
+        for i in range(1):
+            glutSolidTeapot(i)
+        speed = 10
+        self.mMatrix = identity()
+#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10, 'x', self.mMatrix)
+        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10 , 'z', self.mMatrix)
+#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10 , 'y', self.mMatrix)
+#        self.vMatrix = translate(0, 1, 0)
 
-            for pair in i.get('pairs'):
-                x, y = pair.split(',')
-                move(double(x), double(y))
-                rotate(5)
+        # modify the light location in the shader, number of matrices,
+        glUniform3fv(self.light_uniform_loc, 1, self.light_location)
 
-                glutSolidTeapot(1)
-#                glutSolidCube(1)
-#                if shape == 0:
-#                elif shape == 1:
+        glUniformMatrix4fv(self.mMatrixId, 1, GL_FALSE, self.mMatrix)
+        glUniformMatrix4fv(self.vMatrixId, 1, GL_FALSE, self.vMatrix)
+        glUniformMatrix4fv(self.pMatrixId, 1, GL_FALSE, self.pMatrix)
 
-#                d = -8
-#                for j in str(numSim):
-#                    number(int(j), double(x) + d, double(y))
-#                    d += 15p
+        glDisable(GL_LIGHTING)
+        glDisable(GL_CULL_FACE)
+        glFrontFace(GL_CW)
+        glutSolidTeapot(1)
+
 
 
     def OnInit(self):
-        self.image = Image.open('projectimages/sweetsA02.png')
-        self.data = readData('circles.txt')
+        self.data, self.image = readData('circles.txt')
 
         def constructShapes(data):
             for i in data:
@@ -101,37 +128,13 @@ class Context(BaseContext):
         constructShapes(self.data)
 
         self.program = shaders.compileProgram(
-            shaders.compileShader(
-                '''
-                varying vec3 normal;
-                void main() {
-                    normal = gl_NormalMatrix * gl_Normal;
-                    gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-                }
-                ''',
-                GL_VERTEX_SHADER,
-            ),
-            shaders.compileShader(
-                '''
-                uniform vec3 light_location;
-                varying vec3 normal;
-                void main() {
-                    float intensity;
-                    vec4 color;
-                    vec3 n = normalize(normal);
-                    vec3 l = normalize(light_location).xyz;
-                
-                    // quantize to 5 steps (0, .25, .5, .75 and 1)
-                    intensity = (floor(dot(l, n) * 4.0) + 1.0)/4.0;
-                    color = vec4(intensity*0.5, intensity*0.5, intensity*0.5,
-                        intensity*0.5);
-                
-                    gl_FragColor = color;
-                }
-                ''',
-                GL_FRAGMENT_SHADER,
-            ),
+            shaders.compileShader(vertexShader, GL_VERTEX_SHADER),
+            shaders.compileShader(fragmentShader, GL_FRAGMENT_SHADER),
         )
+        # get the location of the uniform variable from the shader (if the variable isn't used, -1 is returned
+        self.vMatrixId = glGetUniformLocation(self.program, 'vMatrix')
+        self.mMatrixId = glGetUniformLocation(self.program, 'mMatrix')
+        self.pMatrixId = glGetUniformLocation(self.program, 'pMatrix')
         self.light_uniform_loc = glGetUniformLocation(self.program, 'light_location')
 
         width, height = self.image.size
