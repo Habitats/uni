@@ -20,10 +20,13 @@ varying vec3 normal;
 uniform mat4 mMatrix;
 uniform mat4 vMatrix;
 uniform mat4 pMatrix;
+varying vec4 pos;
 
 void main() {
     normal = gl_NormalMatrix * gl_Normal;
-    gl_Position = gl_ModelViewProjectionMatrix * pMatrix * vMatrix * mMatrix* gl_Vertex;
+    pos = gl_ModelViewProjectionMatrix * pMatrix * vMatrix * mMatrix* gl_Vertex;
+    gl_Position = pos;
+    gl_Position = vec4(pos[0]+1.,pos[1]+1.,pos[2]+1., pos[3]+1.);
 }
 '''
 
@@ -38,8 +41,7 @@ void main() {
 
     // quantize to 5 steps (0, .25, .5, .75 and 1)
     intensity = (floor(dot(l, n) * 4.0) + 1.0)/4.0;
-    color = vec4(intensity*1.0, intensity*0.5, intensity*0.5,
-        intensity*1.0);
+    color = vec4(intensity*1.0, intensity*0.5, intensity*0.5, intensity*1.0);
 
     gl_FragColor = color;
 }
@@ -64,20 +66,31 @@ class Context(BaseContext):
 
     def Render(self, mode = 0):
 
-
         BaseContext.Render(self, mode)
         glUseProgram(self.program)
-
+#
         # animate
 #        self.mMatrix = translate(5, 2, 0)
         speed = 5
         self.mMatrix = identity()
-#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10, 'x', self.mMatrix)
-        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10  , 'z', self.mMatrix)
-#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10 , 'y', self.mMatrix)
+#        self.mMatrix = translate(1, 0, 0, self.mMatrix)
+#        self.mMatrix = scale(3, 4, 1, self.mMatrix)
+#        self.mMatrix = rotate(40 , 'z', self.mMatrix)
+#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 , 'x', self.mMatrix)
+        self.mMatrix = translate(1, 0, 0, self.mMatrix)
+        v = array([0, 0, 0, 0])
+        print v.dot(self.mMatrix.reshape(4, 4))
+        speed = 5
+
+#        speed *= 0.5
+#        self.mMatrix = rotate(time.time() % (speed) / speed * -360   , 'z', self.mMatrix)
+#        speed *= 4
+#        self.mMatrix = rotate(time.time() % (speed) / speed * -360  , 'y', self.mMatrix)
 #        self.vMatrix = translate(0, 1, 0)
 
-        self.vMatrix = rotate(time.time() % (speed) / speed * -360 * 10 , 'x')
+#        speed = 10
+#        self.vMatrix = rotate(time.time() % (speed) / speed * -360 , 'x')
+#        self.mMatrix = rotate(90, 'z')
 
 
         # modify the light location in the shader, number of matrices,
@@ -85,31 +98,14 @@ class Context(BaseContext):
         glUniformMatrix4fv(self.mMatrixId, 1, GL_FALSE, self.mMatrix)
         glUniformMatrix4fv(self.vMatrixId, 1, GL_FALSE, self.vMatrix)
         glUniformMatrix4fv(self.pMatrixId, 1, GL_FALSE, self.pMatrix)
+        glUniform4fv(self.vPos, 1, v)
 
         glDisable(GL_LIGHTING)
         glDisable(GL_CULL_FACE)
         glFrontFace(GL_CW)
 
-        for i in range(1):
-            glutSolidTeapot(i)
-        speed = 10
-        self.mMatrix = identity()
-#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10, 'x', self.mMatrix)
-        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10 , 'z', self.mMatrix)
-#        self.mMatrix = rotate(time.time() % (speed) / speed * -360 * 10 , 'y', self.mMatrix)
-#        self.vMatrix = translate(0, 1, 0)
 
-        # modify the light location in the shader, number of matrices,
-        glUniform3fv(self.light_uniform_loc, 1, self.light_location)
-
-        glUniformMatrix4fv(self.mMatrixId, 1, GL_FALSE, self.mMatrix)
-        glUniformMatrix4fv(self.vMatrixId, 1, GL_FALSE, self.vMatrix)
-        glUniformMatrix4fv(self.pMatrixId, 1, GL_FALSE, self.pMatrix)
-
-        glDisable(GL_LIGHTING)
-        glDisable(GL_CULL_FACE)
-        glFrontFace(GL_CW)
-        glutSolidTeapot(1)
+        glutSolidCube(1)
 
 
 
@@ -135,6 +131,7 @@ class Context(BaseContext):
         self.vMatrixId = glGetUniformLocation(self.program, 'vMatrix')
         self.mMatrixId = glGetUniformLocation(self.program, 'mMatrix')
         self.pMatrixId = glGetUniformLocation(self.program, 'pMatrix')
+        self.vPos = glGetUniformLocation(self.program, 'pos')
         self.light_uniform_loc = glGetUniformLocation(self.program, 'light_location')
 
         width, height = self.image.size

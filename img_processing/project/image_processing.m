@@ -1,5 +1,5 @@
 function image_processing(path)
-%     path = 'projectimages/sweetsA01.png';
+%     path = 'projectimages/sweetsA02.png';
     %     03
     %     blue:    16
     %     green:   16
@@ -25,7 +25,9 @@ function image_processing(path)
 
     % find circles
     [centers, radii, circles] = identifyCircles(I);
+    imshow(circles)
     viscircles(centers, radii,'EdgeColor','b');
+
     
     % create an image where each circle center is represented by a 1
     circleImage = zeros(size(I));
@@ -62,6 +64,7 @@ function image_processing(path)
     imwrite(processed, 'processed.png');
     imwrite(I,'image.png');
     
+    imshow(processed);
     writeCircles(colorPalette, path);
     exit;
 end
