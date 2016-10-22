@@ -1,20 +1,20 @@
 package axelrod;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import agents.ExtendedAgent;
-import agents.AlmostRandom;
+import agents.Oxymoron;
 import agents.Coop;
 import agents.Defect;
+import agents.Agent;
 import agents.Mix;
 import agents.TitForTat;
 import agents.TitForTwoTat;
 
 /**
  * Created by Patrick on 16.01.2015.
+ *
+ * This is the Axelrod Tournament main class
  */
 public class Axelrod {
 
@@ -23,14 +23,15 @@ public class Axelrod {
   }
 
   private void run() {
-    ExtendedAgent almostRandom = new AlmostRandom();
-    ExtendedAgent coop = new Coop();
-    ExtendedAgent defect = new Defect();
-    ExtendedAgent mix = new Mix();
-    ExtendedAgent titForTat = new TitForTat();
-    ExtendedAgent titForTwoTat = new TitForTwoTat();
+    // create and initialize the agents
+    Agent almostRandom = new Oxymoron();
+    Agent coop = new Coop();
+    Agent defect = new Defect();
+    Agent mix = new Mix();
+    Agent titForTat = new TitForTat();
+    Agent titForTwoTat = new TitForTwoTat();
 
-    Set<ExtendedAgent> agents = new HashSet<ExtendedAgent>();
+    List<Agent> agents = new ArrayList<Agent>();
     agents.add(almostRandom);
     agents.add(coop);
     agents.add(defect);
@@ -39,37 +40,47 @@ public class Axelrod {
     agents.add(titForTwoTat);
 
     List<Result> results = new ArrayList<Result>();
-    for (ExtendedAgent agent : agents) {
-      Result result = play(agent, agents, 30);
-      results.add(result);
 
-      System.out.println(agent.getClass().getSimpleName() + " - M: " + result.getM() + " - F: " + result.getF());
+    // for every tournament
+    for (int tournament = 1; tournament <= 3; tournament++) {
+      System.out.println("\n\nRound: " + tournament);
+
+      // for every round
+      for (int n = 10; n <= 1000; n += 10) {
+        System.out.println("\nN: " + n);
+
+        for (Agent agent : agents) {
+          Result result = play(agent, agents, n);
+          results.add(result);
+
+          // format it pretty
+          System.out
+              .format("%13s - F: %.3f - M: %s%n", agent.getClass().getSimpleName(), result.getF(), result.getMString());
+        }
+      }
     }
   }
 
-  private Result play(ExtendedAgent agent, Set<ExtendedAgent> agents, int n) {
-    Result result = new Result(agent, agents.size());
+  private Result play(Agent agent, List<Agent> agents, int n) {
 
-    for (ExtendedAgent opponent : agents) {
+    Result result = new Result(agent, agents.size());
+    for (Agent opponent : agents) {
+      double m = 0;
       // avoid playing against itself
       if (!opponent.equals(agent)) {
         // create fresh lists of actions
-        List<ExtendedAgent.Action> opponentActions = new ArrayList<ExtendedAgent.Action>();
-        List<ExtendedAgent.Action> agentActions = new ArrayList<ExtendedAgent.Action>();
-
-        agentActions.add(agent.getInitialAction());
+        List<Agent.Action> opponentActions = new ArrayList<Agent.Action>();
+        List<Agent.Action> agentActions = new ArrayList<Agent.Action>();
 
         // do the fighting!
         for (int i = 0; i < n; i++) {
-          // opponent makes an action
-          ExtendedAgent.Action opponentAction = opponent.dilemma(agentActions);
-          opponentActions.add(opponentAction);
-
-          // the agent answers
-          ExtendedAgent.Action agentAction = agent.dilemma(opponentActions);
+          Agent.Action agentAction = agent.dilemma(opponentActions);
           agentActions.add(agentAction);
 
-          result.addFight(agentAction, opponentAction);
+          Agent.Action opponentAction = opponent.dilemma(agentActions);
+          opponentActions.add(opponentAction);
+
+          result.addFight(agentAction, opponentAction, opponent);
         }
       }
     }

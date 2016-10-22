@@ -8,15 +8,11 @@ import java.util.List;
  *
  * This agent will always defect
  */
-public class Defect implements ExtendedAgent {
+public class Defect implements Agent {
 
   @Override
   public Action dilemma(List<Action> opponentPreviousActions) {
     return Action.DEFECT;
   }
 
-  @Override
-  public Action getInitialAction() {
-    return Action.DEFECT;
-  }
 }

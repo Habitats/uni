@@ -7,7 +7,7 @@ import java.util.List;
  *
  * This agent will cooperate if unless the opponent defects twice
  */
-public class TitForTwoTat implements ExtendedAgent {
+public class TitForTwoTat implements Agent {
 
 
   @Override
@@ -32,8 +32,4 @@ public class TitForTwoTat implements ExtendedAgent {
     }
   }
 
-  @Override
-  public Action getInitialAction() {
-    return Action.COOPERATE;
-  }
 }

@@ -7,15 +7,12 @@ import java.util.List;
  *
  * This agent will always cooperate
  */
-public class Coop implements ExtendedAgent {
+public class Coop implements Agent {
 
   @Override
   public Action dilemma(List<Action> opponentPreviousActions) {
     return Action.COOPERATE;
   }
 
-  @Override
-  public Action getInitialAction() {
-    return Action.COOPERATE;
-  }
+
 }

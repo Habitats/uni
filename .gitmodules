@@ -1,3 +1,17 @@
-[submodule "logres"]
-	path = logres
-	url = git://github.com/Habitats/logres.git
+[submodule "subsym"]
+	path = subsym
+	url = git@github.com:habitats/subsym
+[submodule "ai-programming"]
+	path = ai-programming
+	url = git@github.com:habitats/ai-programming
+[submodule "khepera"]
+	path = khepera
+	url = git@github.com:habitats/khepera
+[submodule "eit-bigdata"]
+	path = eit-bigdata
+	url = git@github.com:habitats/eit-bigdata
+[submodule "athens"]
+	path = athens
+	url = git@github.com:habitats/athens
+
+

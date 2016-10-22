@@ -7,7 +7,7 @@ import java.util.List;
  *
  * This agent will do whatever the opponent did last
  */
-public class TitForTat implements ExtendedAgent {
+public class TitForTat implements Agent {
 
   @Override
   public Action dilemma(List<Action> opponentPreviousActions) {
@@ -17,8 +17,5 @@ public class TitForTat implements ExtendedAgent {
     return opponentPreviousActions.get(opponentPreviousActions.size() - 1);
   }
 
-  @Override
-  public Action getInitialAction() {
-    return Action.COOPERATE;
-  }
+
 }
